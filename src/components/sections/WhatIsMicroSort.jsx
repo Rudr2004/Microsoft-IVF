@@ -24,36 +24,36 @@ export default function WhatIsMicroSort() {
               {/* Graphic comparing X (Pink) vs Y (Teal) chromosomes */}
               <div className="space-y-6">
                 {/* X Chromosome row */}
-                <div className="bg-surface border border-border/60 p-4 rounded-2xl flex items-center justify-between">
+                <div className="bg-surface border border-border/60 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center text-accent font-sans font-bold text-lg">
+                    <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center text-accent font-sans font-bold text-lg shrink-0">
                       X
                     </div>
-                    <div>
+                    <div className="text-left">
                       <div className="text-sm font-bold text-primary">Sperm carrying X</div>
                       <div className="text-[11px] text-muted">Produces a female baby</div>
                     </div>
                   </div>
-                  <div className="text-right shrink-0">
-                    <span className="text-xs bg-accent/10 text-primary font-semibold px-2.5 py-1 rounded-full">
+                  <div className="text-left sm:text-right shrink-0">
+                    <span className="text-xs bg-accent/10 text-primary font-semibold px-2.5 py-1 rounded-full inline-block">
                       ~2.8% More DNA
                     </span>
                   </div>
                 </div>
 
                 {/* Y Chromosome row */}
-                <div className="bg-surface border border-border/60 p-4 rounded-2xl flex items-center justify-between">
+                <div className="bg-surface border border-border/60 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary-light/15 flex items-center justify-center text-primary-light font-sans font-bold text-lg">
+                    <div className="w-10 h-10 rounded-xl bg-primary-light/15 flex items-center justify-center text-primary-light font-sans font-bold text-lg shrink-0">
                       Y
                     </div>
-                    <div>
+                    <div className="text-left">
                       <div className="text-sm font-bold text-primary">Sperm carrying Y</div>
                       <div className="text-[11px] text-muted">Produces a male baby</div>
                     </div>
                   </div>
-                  <div className="text-right shrink-0">
-                    <span className="text-xs bg-primary-light/10 text-primary-light font-semibold px-2.5 py-1 rounded-full">
+                  <div className="text-left sm:text-right shrink-0">
+                    <span className="text-xs bg-primary-light/10 text-primary-light font-semibold px-2.5 py-1 rounded-full inline-block">
                       Standard DNA
                     </span>
                   </div>

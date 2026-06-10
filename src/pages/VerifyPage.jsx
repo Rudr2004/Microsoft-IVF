@@ -128,36 +128,37 @@ export default function VerifyPage() {
               </div>
 
               {/* Lab details grid */}
+              {/* Lab details grid */}
               <div className="bg-bg rounded-2xl p-4 sm:p-6 space-y-3 font-sans text-xs">
-                <div className="flex justify-between items-center py-1.5 border-b border-border/40">
-                  <span className="text-muted font-medium">Verification Key</span>
-                  <span className="text-primary font-bold uppercase">{result.code}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Verification Key</span>
+                  <span className="text-primary font-bold uppercase text-left sm:text-right">{result.code}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-border/40">
-                  <span className="text-muted font-medium">Processing Facility</span>
-                  <span className="text-primary font-bold">{result.lab}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Processing Facility</span>
+                  <span className="text-primary font-bold text-left sm:text-right">{result.lab}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-border/40">
-                  <span className="text-muted font-medium">Sorting Target</span>
-                  <span className="text-primary font-bold">{result.target}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Sorting Target</span>
+                  <span className="text-primary font-bold text-left sm:text-right">{result.target}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-border/40">
-                  <span className="text-muted font-medium">Target Chromosome Purity</span>
-                  <span className="text-accent font-bold text-sm bg-accent/15 px-2.5 py-0.5 rounded-full">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1.5 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Target Chromosome Purity</span>
+                  <span className="text-accent font-bold text-sm bg-accent/15 px-2.5 py-0.5 rounded-full inline-block w-fit text-left sm:text-right">
                     {result.purity}
                   </span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-border/40">
-                  <span className="text-muted font-medium">Sorted Volume</span>
-                  <span className="text-primary font-bold">{result.volumeSorted}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Sorted Volume</span>
+                  <span className="text-primary font-bold text-left sm:text-right">{result.volumeSorted}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-border/40">
-                  <span className="text-muted font-medium">Post-Sort Motility</span>
-                  <span className="text-primary font-bold">{result.motilityPostSort}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Post-Sort Motility</span>
+                  <span className="text-primary font-bold text-left sm:text-right">{result.motilityPostSort}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5">
-                  <span className="text-muted font-medium">Date Processed</span>
-                  <span className="text-primary font-bold">{result.date}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 gap-1 sm:gap-0 text-left">
+                  <span className="text-muted font-medium text-left">Date Processed</span>
+                  <span className="text-primary font-bold text-left sm:text-right">{result.date}</span>
                 </div>
               </div>
 

@@ -112,8 +112,8 @@ export default function LocationsPage() {
                   </Badge>
                 </div>
 
-                {/* Right Column: Contact Details (8 cols) */}
-                <div className="w-full md:w-2/3 space-y-4 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-border md:pl-8">
+                {/* Right Column: Contact Details */}
+                <div className="w-full md:flex-1 space-y-4 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-border md:pl-8">
                   {/* Address */}
                   <div className="flex items-start gap-3.5">
                     <div className="w-9 h-9 rounded-lg bg-bg text-primary flex items-center justify-center shrink-0">

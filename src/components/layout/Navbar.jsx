@@ -226,10 +226,10 @@ export default function Navbar() {
             </Link>
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold uppercase tracking-widest text-muted">Locations</span>
-              <div className="grid grid-cols-2 gap-2 mt-1 bg-primary/5 p-3 rounded-2xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1 bg-primary/5 p-3 rounded-2xl">
                 <Link
                   to="/locations"
-                  className="col-span-2 text-sm text-primary font-semibold py-1.5 flex items-center gap-1.5"
+                  className="col-span-1 sm:col-span-2 text-sm text-primary font-semibold py-1.5 flex items-center gap-1.5"
                   onClick={() => setIsOpen(false)}
                 >
                   📍 All Locations

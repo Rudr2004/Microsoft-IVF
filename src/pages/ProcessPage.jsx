@@ -141,10 +141,10 @@ export default function ProcessPage() {
                   </div>
 
                   {/* Empty Spacer Column (Desktop) */}
-                  <div className="md:col-span-2 md:order-2"></div>
+                  <div className="md:col-span-2 md:order-2 hidden md:block"></div>
 
-                  {/* Empty Right Column (Desktop) */}
-                  <div className="md:col-span-5 md:order-3 hidden md:block"></div>
+                  {/* Empty Alternating Column (Desktop) */}
+                  <div className={`md:col-span-5 ${isEven ? 'md:order-3' : 'md:order-1'} hidden md:block`}></div>
                 </motion.div>
               );
             })}

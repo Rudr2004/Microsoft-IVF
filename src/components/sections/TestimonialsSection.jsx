@@ -84,27 +84,64 @@ export default function TestimonialsSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Left Arrow */}
+          {/* Left Arrow (Desktop only) */}
           <button
             onClick={slidePrev}
             aria-label="Previous testimonial"
-            className="absolute left-[-16px] md:left-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-border shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-20"
+            className="hidden md:flex absolute left-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-border shadow-md items-center justify-center text-primary hover:bg-primary hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-20"
           >
             <ChevronLeft size={20} />
           </button>
 
-          {/* Right Arrow */}
+          {/* Right Arrow (Desktop only) */}
           <button
             onClick={slideNext}
             aria-label="Next testimonial"
-            className="absolute right-[-16px] md:right-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-border shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-20"
+            className="hidden md:flex absolute right-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-border shadow-md items-center justify-center text-primary hover:bg-primary hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-20"
           >
             <ChevronRight size={20} />
           </button>
         </div>
 
-        {/* Dot Indicators */}
-        <div className="flex justify-center items-center gap-2.5 mt-8">
+        {/* Mobile controls: dots and navigation buttons inline */}
+        <div className="flex md:hidden justify-center items-center gap-6 mt-6">
+          <button
+            onClick={slidePrev}
+            aria-label="Previous testimonial"
+            className="w-10 h-10 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <div className="flex gap-2.5">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setDirection(idx > current ? 1 : -1);
+                  setCurrent(idx);
+                }}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  idx === current 
+                    ? 'bg-primary w-6' 
+                    : 'bg-primary/20 hover:bg-primary/40'
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={slideNext}
+            aria-label="Next testimonial"
+            className="w-10 h-10 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Desktop Dot Indicators */}
+        <div className="hidden md:flex justify-center items-center gap-2.5 mt-8">
           {testimonials.map((_, idx) => (
             <button
               key={idx}
