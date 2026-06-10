@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary:     #0D4F6C;
+    --color-secondary:   #1A7FA0;
+    --color-accent:      #E8A598;
+    --color-bg:          #F8F9FB;
+    --color-surface:     #FFFFFF;
+    --color-text:        #1C2B35;
+    --color-muted:       #6B7E8A;
+    --color-border:      #E2E8ED;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-normal tracking-normal text-primary;
+  }
+}
+
+/* Custom scrollbar styling for standard medical app feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F9FB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8ED;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6B7E8A;
+}
+
+/* Page entrance animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
