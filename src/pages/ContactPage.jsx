@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
-import { Phone, Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 
 export default function ContactPage() {
@@ -202,17 +202,11 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    {/* Submit Button */}
-                    <Button 
-                      type="button" 
-                      variant="primary" 
-                      size="md" 
-                      disabled
-                      className="w-full justify-center gap-2 cursor-not-allowed opacity-60"
-                    >
-                      <span>Form Submission Disabled</span>
-                      <Send size={14} />
-                    </Button>
+                    {/* Locked Status Indicator */}
+                    <div className="w-full flex items-center justify-center gap-2 bg-[#F1F3F5] text-[#8A99A8] font-sans font-semibold text-sm rounded-full py-3.5 border border-[#E2E8ED] select-none cursor-not-allowed">
+                      <Lock size={14} className="text-[#8A99A8]" />
+                      <span>Submit Inquiry</span>
+                    </div>
                   </form>
                 ) : (
                   <div className="flex flex-col items-center justify-center text-center py-12">
