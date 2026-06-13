@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed mb-6">
-              MicroSort® is a scientifically proven preconception process that improves the chances that the baby you conceive will be of the desired gender.
+              MicroSort® is a scientifically proven preconception process that increases the probability that the baby you conceive will be of your preferred chromosomal sex.
             </p>
             <div className="flex items-center gap-4">
               <a 
@@ -142,11 +142,11 @@ export default function Footer() {
               Locations served: <span className="text-white/80">Mexico | North Cyprus | Malaysia | Japan | Cambodia | Thailand | Nigeria</span>
             </p>
             <p>
-              Disclaimer: MicroSort® technology is used exclusively for preconception gender selection in clinical IVF. Consult with authorized laboratories for eligibility.
+              Disclaimer: MicroSort® technology is used exclusively for preconception sex selection in clinical IUI, IVF, and ICSI treatments. Consult with authorized laboratories for eligibility.
             </p>
           </div>
           <div className="flex flex-col items-center lg:items-end gap-1 shrink-0">
-            <span>© 2017 MicroSort | All Rights Reserved</span>
+            <span>© 2026 MicroSort | All Rights Reserved</span>
             <span className="flex items-center gap-1">
               With hope and precision <Heart size={10} className="fill-accent text-accent animate-pulse" />
             </span>

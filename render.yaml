@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: microsoft-ivf-01
+    env: static
+    buildCommand: npm run build
+    publishPath: dist
+    routes:
+      - source: /*
+        destination: /index.html
+        type: rewrite

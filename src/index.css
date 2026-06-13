@@ -109,3 +109,26 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #1c2b35 !important;
+  }
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+  .card-container {
+    border: 1px solid #e2e8ed !important;
+    box-shadow: none !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    margin-bottom: 16px !important;
+    page-break-inside: avoid;
+    background: #ffffff !important;
+  }
+  a {
+    text-decoration: none !important;
+    color: #0d4f6c !important;
+  }
+}

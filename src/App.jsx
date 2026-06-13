@@ -33,6 +33,8 @@ export default function App() {
           <Route path="contact" element={<ContactPage />} />
 
           {/* Gracefully handle legacy /about routes or mismatches */}
+          <Route path="contactUs" element={<Navigate to="/contact" replace />} />
+          <Route path="contact-us" element={<Navigate to="/contact" replace />} />
           <Route path="about" element={<Navigate to="/process" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

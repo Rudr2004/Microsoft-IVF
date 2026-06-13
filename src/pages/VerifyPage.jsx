@@ -1,190 +1,68 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SectionHeader from '../components/ui/SectionHeader';
-import Button from '../components/ui/Button';
-import { ShieldCheck, Loader2, FileCheck, CheckCircle2, ArrowRight, Download, RefreshCw } from 'lucide-react';
-import Badge from '../components/ui/Badge';
+import { ShieldAlert, Phone, Mail, Lock } from 'lucide-react';
 
 export default function VerifyPage() {
-  const [code, setCode] = useState('');
-  const [status, setStatus] = useState('idle'); // idle | checking | success | error
-  const [result, setResult] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!code.trim()) return;
-
-    setStatus('checking');
-    
-    // Simulate 2 seconds of secure verification delay
-    setTimeout(() => {
-      // Create random or predetermined mock results based on the input code
-      const upperCode = code.trim().toUpperCase();
-      
-      const isXChr = upperCode.includes('X') || upperCode.charCodeAt(0) % 2 === 0;
-      
-      setResult({
-        code: upperCode,
-        lab: upperCode.includes('CYPRUS') ? 'Nicosia, North Cyprus' : 'Guadalajara, Mexico',
-        target: isXChr ? 'X-Chromosome (Female balancing)' : 'Y-Chromosome (Male balancing)',
-        purity: isXChr ? '91.2%' : '75.8%',
-        volumeSorted: '1.2 mL',
-        motilityPostSort: '84%',
-        date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-      });
-      setStatus('success');
-    }, 2000);
-  };
-
-  const handleReset = () => {
-    setCode('');
-    setStatus('idle');
-    setResult(null);
-  };
-
   return (
-    <div className="bg-bg py-16 md:py-24">
-      <div className="max-w-xl mx-auto px-6">
+    <div className="bg-bg py-16 md:py-24 font-sans text-[#1C2B35]">
+      <div className="max-w-2xl mx-auto px-6">
         
         {/* Header */}
         <SectionHeader
-          eyebrow="Results System"
+          eyebrow="Results Verification Portal"
           title="Verify Your Sort"
-          subtitle="Input the unique authentication key printed on your center receipt to retrieve clinical sorting records and lab purity profiles."
+          subtitle="Unique laboratory authentication codes must be verified directly with our clinical coordination office."
         />
 
-        {/* Informational description */}
-        <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm text-center mb-8">
-          <p className="text-muted text-sm leading-relaxed font-sans">
-            Once you visit the laboratory, you will get a verification code. Please use this page to verify your sort and get your results.
-          </p>
-        </div>
+        {/* Status Alert Card */}
+        <div className="bg-white border border-[#E2E8ED] rounded-3xl p-8 sm:p-10 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#0D4F6C]/5 rounded-full blur-2xl pointer-events-none"></div>
 
-        {/* Interactive Verification Workflow */}
-        <div className="bg-surface border border-border rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl pointer-events-none"></div>
-
-          {status === 'idle' && (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="verify-code" className="text-xs font-bold uppercase tracking-wider text-muted">
-                  Enter Verification Code
-                </label>
-                <div className="relative">
-                  <input
-                    id="verify-code"
-                    type="text"
-                    required
-                    placeholder="e.g. MS-90821-X"
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    className="w-full bg-bg border border-border text-primary font-sans font-semibold placeholder-muted/50 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base tracking-wide uppercase"
-                  />
-                  <div className="absolute inset-y-0 right-4 flex items-center text-primary-light">
-                    <ShieldCheck size={20} className="opacity-40" />
-                  </div>
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                variant="primary"
-                size="md"
-                className="w-full justify-center flex items-center gap-2"
-              >
-                <span>Verify My Sort</span>
-                <ArrowRight size={16} />
-              </Button>
-            </form>
-          )}
-
-          {status === 'checking' && (
-            <div className="flex flex-col items-center justify-center py-10 text-center">
-              <div className="relative mb-6">
-                <div className="absolute inset-0 rounded-full bg-primary/10 animate-ping"></div>
-                <div className="w-16 h-16 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center relative z-10">
-                  <Loader2 className="text-primary-light animate-spin" size={28} />
-                </div>
-              </div>
-              <h4 className="text-lg font-sans font-bold text-primary mb-2">
-                Checking Sorting Records...
-              </h4>
-              <p className="text-muted text-xs font-sans">
-                Connecting to MicroSort® secure laboratory network database.
-              </p>
+          <div className="flex flex-col items-center text-center">
+            {/* Warning Shield Node */}
+            <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-6">
+              <ShieldAlert className="text-amber-600 stroke-[1.5]" size={32} />
             </div>
-          )}
 
-          {status === 'success' && result && (
-            <div className="space-y-6">
-              {/* Success badge & title */}
-              <div className="flex flex-col items-center text-center pb-4 border-b border-border">
-                <div className="w-12 h-12 rounded-full bg-primary/5 text-primary flex items-center justify-center mb-3">
-                  <CheckCircle2 size={28} className="text-[#0D4F6C]" />
+            <h3 className="text-2xl font-display text-[#0D4F6C] font-normal mb-3">
+              Online Database Lookup Offline
+            </h3>
+            
+            <p className="text-[#6B7E8A] text-sm leading-relaxed max-w-md mb-8 font-sans">
+              To protect patient privacy, comply with medical records safety regulations, and prevent fraud, the online laboratory record lookup tool is currently offline. 
+            </p>
+
+            {/* Warning alert notice */}
+            <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl text-left text-amber-900 w-full mb-8 text-xs leading-relaxed">
+              <strong>Clinical Verification Alert:</strong> Preconception sex sorting purity results represent critical diagnostic data. To prevent errors and comply with HIPAA standards, online lookup tools have been disabled. Patients must verify their laboratory sorting receipts and purity records directly with their clinic coordinators.
+            </div>
+
+            {/* Direct Verification Contacts */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full text-xs text-[#4F5E6A] border-t border-[#E2E8ED] pt-8">
+              <div className="p-5 bg-[#F8F9FB] rounded-2xl border border-[#E2E8ED] text-left">
+                <div className="w-8 h-8 rounded-lg bg-[#0D4F6C]/5 text-[#0D4F6C] flex items-center justify-center mb-3">
+                  <Phone size={16} />
                 </div>
-                <Badge variant="accent">Verified Laboratory Record</Badge>
-                <h4 className="text-xl font-display text-primary mt-2 font-normal">
-                  Sperm Sort Successful
-                </h4>
+                <h5 className="font-bold text-[#0D4F6C] mb-1">Phone Verification</h5>
+                <p className="text-[11px] text-[#6B7E8A] mb-3">Speak directly with medical records coordinators:</p>
+                <a href="tel:7036217171" className="text-[#1A7FA0] font-bold text-sm hover:underline block">(703) 621-7171</a>
               </div>
-
-              {/* Lab details grid */}
-              {/* Lab details grid */}
-              <div className="bg-bg rounded-2xl p-4 sm:p-6 space-y-3 font-sans text-xs">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Verification Key</span>
-                  <span className="text-primary font-bold uppercase text-left sm:text-right">{result.code}</span>
+              
+              <div className="p-5 bg-[#F8F9FB] rounded-2xl border border-[#E2E8ED] text-left">
+                <div className="w-8 h-8 rounded-lg bg-[#0D4F6C]/5 text-[#0D4F6C] flex items-center justify-center mb-3">
+                  <Mail size={16} />
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Processing Facility</span>
-                  <span className="text-primary font-bold text-left sm:text-right">{result.lab}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Sorting Target</span>
-                  <span className="text-primary font-bold text-left sm:text-right">{result.target}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1.5 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Target Chromosome Purity</span>
-                  <span className="text-accent font-bold text-sm bg-accent/15 px-2.5 py-0.5 rounded-full inline-block w-fit text-left sm:text-right">
-                    {result.purity}
-                  </span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Sorted Volume</span>
-                  <span className="text-primary font-bold text-left sm:text-right">{result.volumeSorted}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 border-b border-border/40 gap-1 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Post-Sort Motility</span>
-                  <span className="text-primary font-bold text-left sm:text-right">{result.motilityPostSort}</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-1.5 gap-1 sm:gap-0 text-left">
-                  <span className="text-muted font-medium text-left">Date Processed</span>
-                  <span className="text-primary font-bold text-left sm:text-right">{result.date}</span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button 
-                  variant="primary" 
-                  size="md" 
-                  className="flex-1 justify-center gap-1.5"
-                  onClick={() => alert("Report download simulated successfully!")}
-                >
-                  <Download size={16} />
-                  <span>Download PDF Report</span>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="md" 
-                  className="gap-1.5 justify-center hover:bg-primary hover:text-white"
-                  onClick={handleReset}
-                >
-                  <RefreshCw size={14} />
-                  <span>Verify Another</span>
-                </Button>
+                <h5 className="font-bold text-[#0D4F6C] mb-1">Secure Email Request</h5>
+                <p className="text-[11px] text-[#6B7E8A] mb-3">Inquire about laboratory results and receipt records:</p>
+                <a href="mailto:records@microsort.com" className="text-[#1A7FA0] font-bold text-sm hover:underline block">records@microsort.com</a>
               </div>
             </div>
-          )}
+            
+            <div className="mt-8 text-[11px] text-[#6B7E8A] italic flex items-center gap-1.5 justify-center">
+              <Lock size={12} className="text-emerald-600" />
+              <span>Compliant with standard clinical privacy regulations</span>
+            </div>
+          </div>
         </div>
 
       </div>

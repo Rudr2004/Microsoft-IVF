@@ -91,16 +91,16 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Privacy Guarantee Banner */}
+            {/* Privacy Standards Banner */}
             <div className="bg-[#0D4F6C] text-white rounded-3xl p-6 shadow-md flex gap-4 items-start relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
               <ShieldCheck size={24} className="text-accent shrink-0 mt-0.5 stroke-[1.5]" />
               <div>
                 <h4 className="text-sm font-sans font-bold text-white mb-1">
-                  Confidentiality Guaranteed
+                  Clinical Privacy Standards
                 </h4>
                 <p className="text-white/80 text-xs leading-relaxed font-sans">
-                  We adhere strictly to patient privacy standards. Your personal and clinical reproductive records are encrypted and protected at all times.
+                  We adhere strictly to international patient privacy standards. Your personal and clinical reproductive records are processed in accordance with clinical encryption and compliance policies.
                 </p>
               </div>
             </div>
@@ -111,12 +111,17 @@ export default function ContactPage() {
             <div className="bg-surface border border-border rounded-3xl p-6 sm:p-10 shadow-sm relative">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={(e) => e.preventDefault()} className="space-y-6 opacity-80">
                     <h3 className="text-xl font-display text-primary mb-2 font-normal">
                       Send an Inquiry
                     </h3>
+                    
+                    <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-left text-amber-900 text-xs leading-relaxed mb-6">
+                      <strong>Online Form Submissions Offline:</strong> To protect patient medical privacy and ensure compliance with healthcare communications standards, online contact submissions are temporarily disabled. Please submit all inquiries directly via the international coordination office email or phone listed on the left.
+                    </div>
+
                     <p className="text-muted text-xs font-sans mb-6">
-                      Complete the form below to reach a patient coordinator. Please do not share medical test reports directly through this form.
+                      Complete the form below to prepare your inquiry before contacting us. Please do not share medical test reports directly through this form.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -128,11 +133,12 @@ export default function ContactPage() {
                         <input
                           id="form-name"
                           type="text"
+                          disabled
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="Your name"
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
+                          placeholder="Your name (Disabled)"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans cursor-not-allowed"
                         />
                       </div>
 
@@ -144,11 +150,12 @@ export default function ContactPage() {
                         <input
                           id="form-email"
                           type="email"
+                          disabled
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="your.name@domain.com"
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
+                          placeholder="your.name@domain.com (Disabled)"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans cursor-not-allowed"
                         />
                       </div>
                     </div>
@@ -161,9 +168,10 @@ export default function ContactPage() {
                       <div className="relative">
                         <select
                           id="form-country"
+                          disabled
                           value={formData.country}
                           onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none cursor-not-allowed"
                         >
                           {countries.map((c) => (
                             <option key={c} value={c}>{c}</option>
@@ -184,23 +192,25 @@ export default function ContactPage() {
                       </label>
                       <textarea
                         id="form-message"
+                        disabled
                         required
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Write details of your inquiry or scheduling questions..."
-                        className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans resize-none"
+                        placeholder="Write details of your inquiry or scheduling questions... (Disabled)"
+                        className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans resize-none cursor-not-allowed"
                       />
                     </div>
 
                     {/* Submit Button */}
                     <Button 
-                      type="submit" 
+                      type="button" 
                       variant="primary" 
                       size="md" 
-                      className="w-full justify-center gap-2"
+                      disabled
+                      className="w-full justify-center gap-2 cursor-not-allowed opacity-60"
                     >
-                      <span>Send Message</span>
+                      <span>Form Submission Disabled</span>
                       <Send size={14} />
                     </Button>
                   </form>
@@ -213,19 +223,8 @@ export default function ContactPage() {
                       Thank You!
                     </h3>
                     <p className="text-muted text-sm leading-relaxed max-w-sm mb-8 font-sans">
-                      Your message has been sent to our international coordination office. A coordinator will contact you shortly via email.
+                      Your message has been sent.
                     </p>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={() => {
-                        setIsSubmitted(false);
-                        setFormData({ name: '', email: '', country: 'Mexico', message: '' });
-                      }}
-                      className="hover:bg-primary hover:text-white"
-                    >
-                      Send Another Inquiry
-                    </Button>
                   </div>
                 )}
               </AnimatePresence>

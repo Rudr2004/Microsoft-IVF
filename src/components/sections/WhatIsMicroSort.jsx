@@ -90,11 +90,11 @@ export default function WhatIsMicroSort() {
             />
             
             <p className="text-base md:text-lg text-primary/90 leading-relaxed font-sans mb-6">
-              MicroSort<span className="text-xs align-super font-bold">®</span> is a scientifically proven preconception process that improves the chances that the baby you conceive will be of the desired gender.
+              MicroSort<span className="text-xs align-super font-bold">®</span> is a scientifically proven preconception process that increases the probability that the baby you conceive will be of your preferred chromosomal sex.
             </p>
             
             <p className="text-muted text-sm leading-relaxed mb-8">
-              Semen samples usually contain equal amounts of sperm carrying the Y chromosome (which will produce a boy), and sperm carrying the X chromosome (which will produce a girl). By identifying and selecting specific sperm types, MicroSort® increases the density of your desired chromosome prior to fertilization.
+              Semen samples usually contain equal amounts of sperm carrying the Y chromosome (which leads to a male expected sex at birth), and sperm carrying the X chromosome (which leads to a female expected sex at birth). By identifying and selecting specific sperm types, MicroSort® increases the proportion of X-bearing or Y-bearing sperm prior to fertilization.
             </p>
 
             {/* MicroSort proof list */}

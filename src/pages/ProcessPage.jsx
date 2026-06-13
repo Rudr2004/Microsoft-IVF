@@ -41,7 +41,7 @@ const steps = [
     number: "05",
     title: "Enriched Sample Prepared",
     subtitle: "Ready for Cryopreservation or Insemination",
-    description: "The enriched sperm sample carrying the desired gender is finalized. The sample is prepared for immediate reproductive use (IUI/IVF/ICSI) or cryopreserved (frozen) for global shipment.",
+    description: "The enriched sperm sample containing the preferred X-bearing or Y-bearing sperm is finalized. The sample is prepared for immediate reproductive use (IUI/IVF/ICSI) or cryopreserved (frozen) for global shipment.",
     icon: FlaskConical,
     color: "bg-primary-dark/10 text-primary-dark"
   }
