@@ -91,10 +91,14 @@ export default function Navbar() {
             to="/" 
             className="flex flex-col group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-2"
           >
-            <span className="text-2xl font-display text-primary tracking-wide font-normal flex items-center gap-1.5">
-              MicroSort<span className="text-xs align-super text-accent-light font-bold">®</span>
-            </span>
-            <span className="text-[10px] text-muted tracking-widest font-sans uppercase font-medium mt-[-2px] group-hover:text-primary-light transition-colors">
+            <div className="flex items-center">
+              <img 
+                src="/MicroSort-logo.png" 
+                alt="MicroSort® Logo" 
+                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+            </div>
+            <span className="text-[10px] text-muted tracking-widest font-sans uppercase font-medium mt-1.5 group-hover:text-primary-light transition-colors">
               Where hope meets science
             </span>
           </Link>

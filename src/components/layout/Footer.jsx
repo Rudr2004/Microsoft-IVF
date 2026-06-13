@@ -12,11 +12,15 @@ export default function Footer() {
           
           {/* Brand block (2 cols wide on desktop) */}
           <div className="lg:col-span-2 pr-0 lg:pr-12">
-            <Link to="/" className="flex flex-col mb-5">
-              <span className="text-2xl font-display text-white tracking-wide font-normal">
-                MicroSort<span className="text-xs align-super text-accent-light font-bold">®</span>
-              </span>
-              <span className="text-[10px] text-accent-light tracking-widest font-sans uppercase font-semibold mt-[-2px]">
+            <Link to="/" className="flex flex-col mb-5 group">
+              <div className="flex items-center">
+                <img 
+                  src="/MicroSort-logo.png" 
+                  alt="MicroSort® Logo" 
+                  className="h-10 w-auto object-contain brightness-0 invert opacity-90 transition-all duration-300 group-hover:opacity-100"
+                />
+              </div>
+              <span className="text-[10px] text-accent-light tracking-widest font-sans uppercase font-semibold mt-2">
                 Where hope meets science
               </span>
             </Link>
