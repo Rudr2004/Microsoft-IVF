@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionHeader from '../components/ui/SectionHeader';
 import { ShieldAlert, Phone, Mail, Lock } from 'lucide-react';
 
@@ -28,7 +27,7 @@ export default function VerifyPage() {
               Online Database Lookup Offline
             </h3>
             
-            <p className="text-[#6B7E8A] text-sm leading-relaxed max-w-md mb-8 font-sans">
+            <p className="text-muted text-sm leading-relaxed max-w-md mb-8 font-sans">
               To protect patient privacy, comply with medical records safety regulations, and prevent fraud, the online laboratory record lookup tool is currently offline. 
             </p>
 
@@ -44,7 +43,7 @@ export default function VerifyPage() {
                   <Phone size={16} />
                 </div>
                 <h5 className="font-bold text-[#0D4F6C] mb-1">Phone Verification</h5>
-                <p className="text-[11px] text-[#6B7E8A] mb-3">Speak directly with medical records coordinators:</p>
+                <p className="text-[11px] text-muted mb-3">Speak directly with medical records coordinators:</p>
                 <a href="tel:7036217171" className="text-[#1A7FA0] font-bold text-sm hover:underline block">(703) 621-7171</a>
               </div>
               
@@ -53,12 +52,12 @@ export default function VerifyPage() {
                   <Mail size={16} />
                 </div>
                 <h5 className="font-bold text-[#0D4F6C] mb-1">Secure Email Request</h5>
-                <p className="text-[11px] text-[#6B7E8A] mb-3">Inquire about laboratory results and receipt records:</p>
+                <p className="text-[11px] text-muted mb-3">Inquire about laboratory results and receipt records:</p>
                 <a href="mailto:records@microsort.com" className="text-[#1A7FA0] font-bold text-sm hover:underline block">records@microsort.com</a>
               </div>
             </div>
             
-            <div className="mt-8 text-[11px] text-[#6B7E8A] italic flex items-center gap-1.5 justify-center">
+            <div className="mt-8 text-[11px] text-muted italic flex items-center gap-1.5 justify-center">
               <Lock size={12} className="text-emerald-600" />
               <span>Compliant with standard clinical privacy regulations</span>
             </div>
