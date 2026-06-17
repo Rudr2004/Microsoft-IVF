@@ -286,14 +286,13 @@ export default function RequirementsPage() {
               </button>
               
               <div className="flex items-center gap-3 shrink-0">
-                {/* Print Button */}
                 <Button 
                   onClick={handlePrint}
                   variant="primary"
-                  size="sm"
-                  className="flex items-center gap-2 no-print"
+                  size="xs"
+                  className="flex items-center gap-1.5 no-print"
                 >
-                  <Printer size={14} />
+                  <Printer size={12} />
                   <span className="hidden sm:inline">Print Checklist</span>
                 </Button>
                 

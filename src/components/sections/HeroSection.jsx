@@ -17,7 +17,7 @@ export default function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 pb-8 lg:pb-12">
         {/* Left Side Content */}
-        <div className="lg:col-span-7 flex flex-col text-center lg:text-left">
+        <div className="lg:col-span-5 flex flex-col text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,13 +68,13 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
-        className="lg:col-span-5 w-full flex flex-col sm:flex-row gap-6 items-center justify-center relative mt-10 lg:mt-0"
+        className="lg:col-span-7 w-full flex flex-col sm:flex-row gap-6 items-center justify-center lg:justify-end relative mt-10 lg:mt-0"
       >
         {/* Subtle surrounding light glow */}
         <div className="absolute w-72 h-72 bg-accent/20 rounded-full blur-[80px] pointer-events-none animate-float"></div>
         
         {/* Girl Card */}
-        <div className="relative w-full sm:w-1/2 max-w-[220px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300">
+        <div className="relative w-full sm:w-1/2 max-w-[250px] sm:max-w-[300px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300">
           <img 
             src={familyGirlImg} 
             alt="Happy family holding a baby girl" 
@@ -87,7 +87,7 @@ export default function HeroSection() {
         </div>
 
         {/* Boy Card */}
-        <div className="relative w-full sm:w-1/2 max-w-[220px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300 mt-0 sm:mt-12">
+        <div className="relative w-full sm:w-1/2 max-w-[250px] sm:max-w-[300px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300 mt-0 sm:mt-12">
           <img 
             src={familyBoyImg} 
             alt="Happy family holding a baby boy" 
