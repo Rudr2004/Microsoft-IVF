@@ -26,11 +26,11 @@ const routes = [
   // Dynamic location routes
   'locations/mexico',
   'locations/north-cyprus',
-  'locations/japan',
+  // 'locations/japan',
   'locations/malaysia',
-  'locations/cambodia',
-  'locations/thailand',
-  'locations/nigeria',
+  // 'locations/cambodia',
+  // 'locations/thailand',
+  // 'locations/nigeria',
 ];
 
 routes.forEach((route) => {

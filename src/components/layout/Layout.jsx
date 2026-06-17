@@ -32,7 +32,7 @@ export default function Layout() {
       <Navbar />
       
       {/* Main Content Area */}
-      <main className="flex-grow pt-[76px] relative">
+      <main className="flex-grow pt-[90px] relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
