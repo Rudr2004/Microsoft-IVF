@@ -22,11 +22,11 @@ export default {
         bg: '#F8F9FB',          /* Off-white background */
         surface: '#FFFFFF',     /* Card surfaces */
         text: '#1C2B35',        /* Near-black text */
-        muted: '#6B7E8A',       /* Secondary text */
+        muted: '#5A6B77',       /* Secondary text */
         border: '#E2E8ED',      /* Subtle borders */
       },
       fontFamily: {
-        display: ['"DM Serif Display"', 'serif'],
+        display: ['Inter', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
       },
       animation: {
