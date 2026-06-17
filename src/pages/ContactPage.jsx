@@ -21,7 +21,7 @@ export default function ContactPage() {
   };
 
   const countries = [
-    "Mexico", "North Cyprus", "Japan", "Malaysia", "Cambodia", "Thailand", "Nigeria"
+    "Mexico", "North Cyprus", "Malaysia"
   ];
 
   return (

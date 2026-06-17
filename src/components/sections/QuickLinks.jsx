@@ -31,7 +31,7 @@ const links = [
 
 export default function QuickLinks() {
   return (
-    <section className="relative z-20 -mt-16 md:-mt-24 px-6 mb-16">
+    <section className="relative z-20 -mt-4 md:-mt-8 px-6 mb-16 pt-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {links.map((item, idx) => {

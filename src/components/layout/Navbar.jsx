@@ -57,36 +57,19 @@ export default function Navbar() {
       {/* Main Navigation Bar */}
       <nav 
         aria-label="Main navigation" 
-        className={`w-full py-4 px-6 transition-all duration-300 ${
+        className={`w-full py-3 px-6 transition-all duration-300 ${
           isScrolled 
             ? 'bg-surface/90 backdrop-blur-md shadow-sm' 
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-7xl mx-auto flex justify-between items-center min-h-[72px]">
           {/* Logo and Tagline */}
           <Link 
             to="/" 
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-2"
           >
-            <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 transition-transform duration-300 group-hover:scale-105 shrink-0">
-              <circle cx="16" cy="16" r="14" stroke="#0D4F6C" strokeWidth="2.5" />
-              <path d="M16 2v28" stroke="#0E5B82" strokeWidth="1.5" strokeDasharray="3 3" />
-              <circle cx="11" cy="12" r="3.5" fill="#E8A598" />
-              <path d="M11 15.5c0 1.5 1 2.5 2 3.5" stroke="#E8A598" strokeWidth="1.5" strokeLinecap="round" />
-              <circle cx="21" cy="20" r="3.5" fill="#1A7FA0" />
-              <path d="M21 16.5c0-1.5-1-2.5-2-3.5" stroke="#1A7FA0" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <div className="flex flex-col items-start">
-              <span className="font-sans font-bold text-2xl tracking-tight flex items-baseline leading-none">
-                <span className="text-[#1A7FA0]">Micro</span>
-                <span className="text-[#0D4F6C]">Sort</span>
-                <span className="text-[10px] font-bold text-accent align-super ml-0.5">®</span>
-              </span>
-              <span className="text-[9px] text-muted tracking-widest font-sans uppercase font-semibold mt-1 transition-colors group-hover:text-primary-light">
-                Where hope meets science
-              </span>
-            </div>
+            <img src="/MicroSort-logo.png" alt="MicroSort logo" className="h-14 w-auto transition-transform duration-300 group-hover:scale-105 object-contain" />
           </Link>
 
           {/* Desktop Links */}
