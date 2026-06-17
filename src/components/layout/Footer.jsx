@@ -12,25 +12,25 @@ export default function Footer() {
           
           {/* Brand block (2 cols wide on desktop) */}
           <div className="lg:col-span-2 pr-0 lg:pr-12">
-            <Link to="/" className="flex flex-col mb-5 group">
-              <div className="flex items-center gap-2.5">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 transition-transform duration-300 group-hover:scale-105">
-                  <circle cx="16" cy="16" r="14" stroke="#ffffff" strokeWidth="2.5" className="opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <path d="M16 2v28" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="3 3" className="opacity-60" />
-                  <circle cx="11" cy="12" r="3.5" fill="#E8A598" />
-                  <path d="M11 15.5c0 1.5 1 2.5 2 3.5" stroke="#E8A598" strokeWidth="1.5" strokeLinecap="round" />
-                  <circle cx="21" cy="20" r="3.5" fill="#1A7FA0" />
-                  <path d="M21 16.5c0-1.5-1-2.5-2-3.5" stroke="#1A7FA0" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                <span className="font-sans font-bold text-2xl tracking-tight flex items-baseline">
+            <Link to="/" className="flex items-center gap-3 mb-5 group">
+              <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <circle cx="16" cy="16" r="14" stroke="#ffffff" strokeWidth="2.5" className="opacity-90 group-hover:opacity-100 transition-opacity" />
+                <path d="M16 2v28" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="3 3" className="opacity-60" />
+                <circle cx="11" cy="12" r="3.5" fill="#E8A598" />
+                <path d="M11 15.5c0 1.5 1 2.5 2 3.5" stroke="#E8A598" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="21" cy="20" r="3.5" fill="#1A7FA0" />
+                <path d="M21 16.5c0-1.5-1-2.5-2-3.5" stroke="#1A7FA0" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+              <div className="flex flex-col items-start">
+                <span className="font-sans font-bold text-2xl tracking-tight flex items-baseline leading-none">
                   <span className="text-[#98D6E8]">Micro</span>
                   <span className="text-white">Sort</span>
                   <span className="text-[10px] font-bold text-accent-light align-super ml-0.5">®</span>
                 </span>
+                <span className="text-[9px] text-accent-light tracking-widest font-sans uppercase font-semibold mt-1">
+                  Where hope meets science
+                </span>
               </div>
-              <span className="text-[10px] text-accent-light tracking-widest font-sans uppercase font-semibold mt-1">
-                Where hope meets science
-              </span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed mb-6">
               MicroSort® is a scientifically proven preconception process that increases the probability that the baby you conceive will be of your preferred chromosomal sex.
