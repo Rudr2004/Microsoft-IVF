@@ -111,7 +111,7 @@ export default function Navbar() {
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       <MapPin size={16} className="text-accent" />
-                      <span>All 7 Laboratories</span>
+                      <span>All 3 Laboratories</span>
                     </Link>
                     {locations.map((loc) => (
                       <Link
