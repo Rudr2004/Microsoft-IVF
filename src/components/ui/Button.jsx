@@ -20,6 +20,7 @@ export default function Button({
   };
 
   const sizes = {
+    xs: 'text-[10px] sm:text-[11px] px-3 py-1.5 uppercase tracking-wider font-semibold',
     sm: 'text-xs px-4 py-2 uppercase tracking-wider font-semibold',
     md: 'text-sm px-6 py-3 font-semibold',
     lg: 'text-base px-8 py-4 font-semibold',

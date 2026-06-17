@@ -52,29 +52,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-      {/* Top Utility Bar (Desktop only) */}
-      <div className="bg-primary-dark text-white/90 text-xs py-2 px-6 hidden lg:flex justify-between items-center border-b border-primary/20">
-        <div className="flex items-center gap-6">
-          <a href="tel:7036217171" className="flex items-center gap-1.5 hover:text-accent transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded px-1">
-            <Phone size={13} className="text-accent" />
-            <span>(703) 621-7171</span>
-          </a>
-          <span className="text-white/40">|</span>
-          <span className="text-white/75">Hours: 10:00 – 15:00 Central Time (GMT -5:00)</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <Link to="/planning" className="hover:text-accent transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded px-1">
-            Planning a Visit
-          </Link>
-          <Link to="/locations" className="hover:text-accent transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded px-1">
-            View Locations
-          </Link>
-          <Link to="/verify" className="flex items-center gap-1 hover:text-accent text-accent-light font-medium transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded px-1">
-            <FileCheck size={13} />
-            <span>Verify your sort</span>
-          </Link>
-        </div>
-      </div>
+
 
       {/* Main Navigation Bar */}
       <nav 

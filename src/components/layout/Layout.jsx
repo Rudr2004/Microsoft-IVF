@@ -32,7 +32,7 @@ export default function Layout() {
       <Navbar />
       
       {/* Main Content Area */}
-      <main className="flex-grow pt-[76px] lg:pt-[116px] relative">
+      <main className="flex-grow pt-[76px] relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -64,7 +64,7 @@ export default function Layout() {
               {/* Header */}
               <div className="bg-gradient-to-r from-[#0D4F6C] to-[#1A7FA0] p-4 text-white">
                 <div className="flex justify-between items-center">
-                  <h4 className="font-display font-semibold text-sm">MicroSort® Patient Support</h4>
+                  <h4 className="font-display font-semibold text-sm text-white">MicroSort® Patient Support</h4>
                   <button 
                     onClick={() => setIsSupportOpen(false)}
                     className="text-white/80 hover:text-white transition-colors focus:outline-none"
