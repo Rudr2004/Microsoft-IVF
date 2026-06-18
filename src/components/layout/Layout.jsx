@@ -80,20 +80,6 @@ export default function Layout() {
 
               {/* Support Links */}
               <div className="p-4 space-y-3">
-                {/* Phone Link */}
-                <a 
-                  href="tel:7036217171" 
-                  className="flex items-center gap-3 p-3 rounded-xl border border-[#E2E8ED] hover:bg-[#0D4F6C]/5 hover:border-[#0D4F6C]/25 transition-all text-left group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-[#0D4F6C]/5 text-[#0D4F6C] flex items-center justify-center shrink-0 group-hover:bg-[#0D4F6C]/10 transition-colors">
-                    <Phone size={16} />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-[#0D4F6C]">Call Laboratories</div>
-                    <div className="text-[11px] text-muted font-sans">(703) 621-7171</div>
-                  </div>
-                </a>
-
                 {/* Email Link */}
                 <a 
                   href="mailto:records@microsort.com" 

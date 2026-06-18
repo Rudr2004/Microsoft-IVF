@@ -11,7 +11,7 @@ export default function ProcessPage() {
   const steps = [
     {
       id: 0,
-      number: "01",
+      number: "1",
       title: "Sample Washing",
       subtitle: "Purification & Density Isolation",
       icon: Layers,
@@ -73,7 +73,7 @@ export default function ProcessPage() {
     },
     {
       id: 1,
-      number: "02",
+      number: "2",
       title: "Fluorescent Staining",
       subtitle: "DNA-Binding Incubation",
       icon: Droplets,
@@ -117,7 +117,7 @@ export default function ProcessPage() {
     },
     {
       id: 2,
-      number: "03",
+      number: "3",
       title: "Flow Cytometry",
       subtitle: "Laser Interrogation",
       icon: Zap,
@@ -165,7 +165,7 @@ export default function ProcessPage() {
     },
     {
       id: 3,
-      number: "04",
+      number: "4",
       title: "Chromosome Sort",
       subtitle: "Deflection & Capture",
       icon: Split,
@@ -220,7 +220,7 @@ export default function ProcessPage() {
     },
     {
       id: 4,
-      number: "05",
+      number: "5",
       title: "Preparation",
       subtitle: "Ready for Insemination or Freeze",
       icon: FlaskConical,
@@ -376,7 +376,7 @@ export default function ProcessPage() {
                     </div>
                     <div>
                       <span className="text-xs font-bold uppercase tracking-widest text-white/80">
-                        Phase {steps[activeStep].number} of 05
+                        Phase {steps[activeStep].number} of 5
                       </span>
                       <h3 className="text-2xl font-display font-semibold text-white mt-0.5">
                         {steps[activeStep].title}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, MapPin, Phone, HelpCircle, FileCheck } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, HelpCircle, FileCheck } from 'lucide-react';
 import { locations } from '../../data/locations';
 
 export default function Navbar() {
@@ -249,9 +249,9 @@ export default function Navbar() {
             </Link>
 
             <div className="mt-4 border-t border-border pt-6 flex flex-col gap-3">
-              <a href="tel:7036217171" className="flex items-center gap-2 text-sm text-muted">
-                <Phone size={16} className="text-primary-light" />
-                <span>(703) 621-7171</span>
+              <a href="mailto:info@microsort.com" className="flex items-center gap-2 text-sm text-muted">
+                <Mail size={16} className="text-primary-light" />
+                <span>info@microsort.com</span>
               </a>
               <div className="text-xs text-muted">
                 Hours: 10:00 – 15:00 Central Time (GMT -5:00)
