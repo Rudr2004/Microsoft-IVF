@@ -11,6 +11,7 @@ export const locations = [
     email: "mexico@microsort.com",
     hours: "09:00 - 17:00 (CST)"
   },
+  
   {
     id: "north-cyprus",
     name: "North Cyprus",
