@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/ui/SectionHeader';
 import { 
@@ -14,7 +15,8 @@ import {
   ShieldCheck, 
   HelpCircle,
   Activity,
-  ChevronDown
+  ChevronDown,
+  ChevronRight
 } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
@@ -311,31 +313,11 @@ export default function RequirementsPage() {
               </div>
 
               <p className="text-[#4F5E6A] text-base leading-relaxed mb-6 no-print">
-                Infectious disease testing requirements vary by laboratory location due to national regulations and equipment constraints. Select your treatment laboratory and planned procedure to view your personalized checklist:
+                Infectious disease testing requirements vary by laboratory location due to national regulations and equipment constraints. View our laboratory directory to see where each lab is located, and select your planned procedure below to view your checklist:
               </p>
 
               {/* Interactive Filters (no-print) */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8 no-print">
-                {/* Lab Selector */}
-                <div className="flex-1">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Select Lab Location</label>
-                  <div className="grid grid-cols-3 gap-2 bg-[#F8F9FB] p-2 rounded-xl border border-[#E2E8ED]">
-                    {Object.keys(labTests).map((labKey) => (
-                      <button
-                        key={labKey}
-                        onClick={() => setSelectedLab(labKey)}
-                        className={`text-xs py-2 px-4 rounded-lg font-semibold transition-all ${
-                          selectedLab === labKey 
-                            ? 'bg-[#0D4F6C] text-white shadow-sm' 
-                            : 'text-[#4F5E6A] hover:bg-[#E2E8ED]/50'
-                        }`}
-                      >
-                        {labKey.charAt(0).toUpperCase() + labKey.slice(1)}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Treatment Selector */}
                 <div className="flex-1">
                   <label className="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Select Treatment Type</label>
@@ -354,6 +336,18 @@ export default function RequirementsPage() {
                       </button>
                     ))}
                   </div>
+                </div>
+
+                {/* Redirect to Locations Button */}
+                <div className="flex-1 flex flex-col justify-end">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-muted mb-2">Laboratory Details</label>
+                  <Link to="/locations" className="block w-full">
+                    <button className="w-full text-xs font-semibold py-2.5 px-4 rounded-xl border border-[#E2E8ED] bg-[#F8F9FB] text-[#0D4F6C] hover:bg-[#E2E8ED]/50 transition-all flex items-center justify-center gap-2 h-[42px]">
+                      <ClipboardList size={14} className="text-[#1A7FA0]" />
+                      <span>View Laboratory Directory</span>
+                      <ChevronRight size={14} />
+                    </button>
+                  </Link>
                 </div>
               </div>
 
@@ -589,34 +583,17 @@ export default function RequirementsPage() {
             <div className={`${isOpen(7) ? 'block' : 'hidden print:block'} px-6 pb-6 sm:px-8 sm:pb-8 border-t border-[#E2E8ED]/60 pt-6`}>
               <div className="space-y-4 text-base text-[#4F5E6A] leading-relaxed">
                 <p>
-                  MicroSort® prioritizes financial transparency. Below are the standard payment structures and the clinical cancellation fees that apply to all procedures:
+                  Fee structures, billing methods, and cancellation policies vary by clinical center and laboratory location.
                 </p>
-   
-                <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl">
-                  <h4 className="font-bold text-sm text-amber-800 mb-2">40% Cancellation Charge Policy</h4>
-                  <p className="text-xs text-amber-700 leading-relaxed mb-3">
-                    Semen analysis is required before booking but does not guarantee the sample will be usable on the treatment day. If the fresh sample provided on the day of sorting has too few viable cells (TMSC &lt; 5 million) for reasonable sorting, and the procedure is canceled by the laboratory, a cancellation fee of <strong>40% of the total procedure cost</strong> is charged.
+                <div className="bg-[#F8F9FB] border border-[#E2E8ED] rounded-2xl p-6 text-center mt-4">
+                  <p className="text-primary font-medium mb-4">
+                    For more Details Contact Us
                   </p>
-                  
-                  <div className="bg-white/70 p-4 rounded-xl border border-amber-200 text-xs text-amber-900 mt-2">
-                    <h5 className="font-bold mb-1">Worked Financial Example (in USD):</h5>
-                    <ul className="list-disc list-inside space-y-1">
-                      <li>Total Sort Procedure Fee: <strong>$2,200 USD</strong></li>
-                      <li>Semen Suitability Cancellation Fee (40%): <strong>$880 USD</strong> (covers lab prep, sorting reagents, disposable microfluidic cartridges, and dedicated scientist setup time)</li>
-                      <li>Amount Refunded or Credited to Patient: <strong>$1,320 USD</strong></li>
-                    </ul>
-                  </div>
-                </div>
-   
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#4F5E6A] mt-4">
-                  <div className="p-4 bg-[#F8F9FB] rounded-xl border border-[#E2E8ED]">
-                    <h5 className="font-bold text-[#0D4F6C] mb-2">Who Decides Suitability?</h5>
-                    <p>The Laboratory Director or lead clinical cytometrist reviews the sample parameters on the morning of sorting. If count or motility is too low to produce a viable sorted sample, cancellation is recommended to save patient cost.</p>
-                  </div>
-                  <div className="p-4 bg-[#F8F9FB] rounded-xl border border-[#E2E8ED]">
-                    <h5 className="font-bold text-[#0D4F6C] mb-2">Rescheduling, Appeals & Force Majeure</h5>
-                    <p>Patients can appeal cancellation fees if travel delays, force majeure events, or acute illness prevent sample collection. Rescheduling is free of charge with a certified physician's note submitted 48 hours prior.</p>
-                  </div>
+                  <Link to="/contact">
+                    <Button variant="primary" size="md" className="inline-flex">
+                      Contact Coordination Office
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

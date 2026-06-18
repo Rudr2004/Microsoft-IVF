@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
-import { Phone, Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock } from 'lucide-react';
+import { Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 
 export default function ContactPage() {
@@ -45,19 +45,6 @@ export default function ContactPage() {
               </h3>
               
               <div className="space-y-6">
-                {/* Phone */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center shrink-0">
-                    <Phone size={18} className="text-primary-light" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-muted">Phone Inquiry</span>
-                    <a href="tel:7036217171" className="text-base font-sans font-bold text-primary hover:underline mt-0.5 block">
-                      (703) 621-7171
-                    </a>
-                  </div>
-                </div>
-
                 {/* Email */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center shrink-0">

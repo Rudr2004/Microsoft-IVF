@@ -25,11 +25,11 @@ export default function HomePage() {
       {/* Testimonials Slideshow */}
       <TestimonialsSection />
 
-      {/* Verification Code callout */}
-      <VerifySection />
-
       {/* Contact directory select list */}
       <LocationSelector />
+
+      {/* Verification Code callout */}
+      <VerifySection />
     </div>
   );
 }

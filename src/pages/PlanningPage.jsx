@@ -22,7 +22,7 @@ const steps = [
   {
     icon: Compass,
     title: "4. Travel & Logistics",
-    description: "If visiting centers in locations like Guadalajara or North Cyprus, coordinate accommodation. Alternatively, consult with your clinic about cryopreservation and global transport shipping."
+    description: "Coordinate travel to your desired sorting location. Alternatively, consult with your local clinic about sperm cryopreservation and global transport shipping."
   }
 ];
 

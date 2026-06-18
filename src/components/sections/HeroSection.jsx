@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import { ArrowRight } from 'lucide-react';
-import familyGirlImg from '../../assets/happy_family_girl.png';
-import familyBoyImg from '../../assets/happy_family_boy.png';
+import familyGirlBoyImg from '../../assets/happy_family_girl_boy.png';
 
 // DNAAnimation component removed to align with baby imagery and clinical goals
 
@@ -25,80 +24,73 @@ export default function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-accent font-sans text-xs uppercase tracking-widest font-semibold mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
-            Scientifically Proven Preconception Sex Selection
-          </span>
-        </motion.div>
+              Scientifically Proven Preconception Genetic Disease Prevention and Family Balancing
+            </span>
+          </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
-          className="text-4xl sm:text-5xl md:text-6xl text-white font-display leading-[1.1] font-normal mb-6"
-        >
-          Increase your chances of conceiving a boy or a girl using MicroSort<span className="text-xl align-super text-accent-light font-bold">®</span>
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+            className="text-4xl sm:text-5xl md:text-6xl text-white font-display leading-[1.1] font-normal mb-6"
+          >
+            Increase your chances of conceiving a boy or a girl using MicroSort<span className="text-xl align-super text-accent-light font-bold">®</span>
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-          className="text-lg md:text-xl text-white/80 leading-relaxed font-sans mb-10 max-w-xl mx-auto lg:mx-0"
-        >
-          MicroSort<span className="text-xs align-super font-bold">®</span> is a preconception method that separates X-bearing (female expected sex at birth) and Y-bearing (male expected sex at birth) sperm, increasing the probability of your preferred sex.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+            className="text-lg md:text-xl text-white/80 leading-relaxed font-sans mb-10 max-w-xl mx-auto lg:mx-0"
+          >
+            MicroSort<span className="text-xs align-super font-bold">®</span> is a preconception method that separates X-bearing (female expected sex at birth) and Y-bearing (male expected sex at birth) sperm, increasing the probability of your preferred sex.
+          </motion.p>
 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.45 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          >
+            <Button variant="secondary" size="lg" href="/process" className="group text-primary hover:bg-white">
+              <span>Find Out More</span>
+              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="outline" size="lg" href="/planning" className="border-white/40 text-white hover:bg-white/10 hover:border-white">
+              Schedule Consultation
+            </Button>
+          </motion.div>
+        </div>
+
+        {/* Right Side Family Image Illustration (Single-Image Layout) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.45 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+          className="lg:col-span-7 w-full flex items-center justify-center lg:justify-end relative mt-10 lg:mt-0"
         >
-          <Button variant="secondary" size="lg" href="/process" className="group text-primary hover:bg-white">
-            <span>Find Out More</span>
-            <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button variant="outline" size="lg" href="/planning" className="border-white/40 text-white hover:bg-white/10 hover:border-white">
-            Schedule Consultation
-          </Button>
+          {/* Subtle surrounding light glow */}
+          <div className="absolute w-72 h-72 bg-accent/20 rounded-full blur-[80px] pointer-events-none animate-float"></div>
+          
+          {/* Family Card */}
+          <div className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300">
+            <img 
+              src={familyGirlBoyImg} 
+              alt="Happy family with a little girl and a big boy" 
+              className="w-full h-full object-cover rounded-2xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#082F42]/85 via-transparent to-transparent rounded-2xl"></div>
+            
+            <div className="absolute bottom-6 left-6 right-6 flex flex-col items-center sm:items-start text-center sm:text-left gap-1">
+              <span className="text-[10px] font-bold text-white bg-accent/90 py-1.5 px-3 rounded-full uppercase tracking-wider font-sans shadow-md inline-block">
+                Family Balance
+              </span>
+              <p className="text-white text-sm font-sans font-semibold mt-1 drop-shadow-md">
+                Complete your family with gender selection options
+              </p>
+            </div>
+          </div>
         </motion.div>
-      </div>
-
-      {/* Right Side Family Image Illustration (Dual-Image Layout) */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
-        className="lg:col-span-7 w-full flex flex-col sm:flex-row gap-6 items-center justify-center lg:justify-end relative mt-10 lg:mt-0"
-      >
-        {/* Subtle surrounding light glow */}
-        <div className="absolute w-72 h-72 bg-accent/20 rounded-full blur-[80px] pointer-events-none animate-float"></div>
-        
-        {/* Girl Card */}
-        <div className="relative w-full sm:w-1/2 max-w-[250px] sm:max-w-[300px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300">
-          <img 
-            src={familyGirlImg} 
-            alt="Happy family holding a baby girl" 
-            className="w-full h-full object-cover rounded-2xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-transparent rounded-2xl"></div>
-          <span className="absolute bottom-4 left-3 right-3 text-center text-[10px] font-bold text-white bg-[#E8A598]/95 py-1.5 px-2 rounded-full uppercase tracking-wider font-sans shadow-md">
-            X-bearing (Girl Option)
-          </span>
-        </div>
-
-        {/* Boy Card */}
-        <div className="relative w-full sm:w-1/2 max-w-[250px] sm:max-w-[300px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-2 group hover:-translate-y-2 transition-transform duration-300 mt-0 sm:mt-12">
-          <img 
-            src={familyBoyImg} 
-            alt="Happy family holding a baby boy" 
-            className="w-full h-full object-cover rounded-2xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-transparent rounded-2xl"></div>
-          <span className="absolute bottom-4 left-3 right-3 text-center text-[10px] font-bold text-white bg-[#1A7FA0]/95 py-1.5 px-2 rounded-full uppercase tracking-wider font-sans shadow-md">
-            Y-bearing (Boy Option)
-          </span>
-        </div>
-      </motion.div>
       </div>
 
       {/* Decorative wave divider */}

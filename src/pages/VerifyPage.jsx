@@ -1,5 +1,5 @@
 import SectionHeader from '../components/ui/SectionHeader';
-import { ShieldAlert, Phone, Mail, Lock } from 'lucide-react';
+import { ShieldAlert, Mail, Lock } from 'lucide-react';
 
 export default function VerifyPage() {
   return (
@@ -37,21 +37,12 @@ export default function VerifyPage() {
             </div>
 
             {/* Direct Verification Contacts */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full text-xs text-[#4F5E6A] border-t border-[#E2E8ED] pt-8">
-              <div className="p-5 bg-[#F8F9FB] rounded-2xl border border-[#E2E8ED] text-left">
-                <div className="w-8 h-8 rounded-lg bg-[#0D4F6C]/5 text-[#0D4F6C] flex items-center justify-center mb-3">
-                  <Phone size={16} />
-                </div>
-                <h5 className="font-bold text-[#0D4F6C] mb-1">Phone Verification</h5>
-                <p className="text-[11px] text-muted mb-3">Speak directly with medical records coordinators:</p>
-                <a href="tel:7036217171" className="text-[#1A7FA0] font-bold text-sm hover:underline block">(703) 621-7171</a>
-              </div>
-              
+            <div className="max-w-sm w-full text-xs text-[#4F5E6A] border-t border-[#E2E8ED] pt-8">
               <div className="p-5 bg-[#F8F9FB] rounded-2xl border border-[#E2E8ED] text-left">
                 <div className="w-8 h-8 rounded-lg bg-[#0D4F6C]/5 text-[#0D4F6C] flex items-center justify-center mb-3">
                   <Mail size={16} />
                 </div>
-                <h5 className="font-bold text-[#0D4F6C] mb-1">Secure Email Request</h5>
+                <h5 className="font-bold text-[#0D4F6C] mb-1">Secure Email Verification Request</h5>
                 <p className="text-[11px] text-muted mb-3">Inquire about laboratory results and receipt records:</p>
                 <a href="mailto:records@microsort.com" className="text-[#1A7FA0] font-bold text-sm hover:underline block">records@microsort.com</a>
               </div>

@@ -63,7 +63,7 @@ export default function LocationsPage() {
               onChange={handleDropdownChange}
               className="w-full bg-surface border border-border text-primary font-sans font-medium rounded-full px-6 py-3.5 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent cursor-pointer appearance-none text-base shadow-sm"
             >
-              <option value="all">📍 Show All 3 Laboratories</option>
+              <option value="all">📍 Show All {locations.length} Laboratories</option>
               {locations.map((loc) => (
                 <option key={loc.id} value={loc.slug}>
                   {loc.flag} {loc.name} Center
