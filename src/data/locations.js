@@ -1,28 +1,27 @@
 export const locations = [
   {
+    id: "thailand",
+    name: "Thailand",
+    country: "Thailand",
+    slug: "thailand",
+    flag: "🇹🇭",
+    city: "Bangkok",
+    address: "Sukhumvit Rd, Khlong Toei, Bangkok, 10110",
+    phone: "+66 (2) 250-0120",
+    email: "thailand@microsort.com",
+    hours: "09:00 - 17:00 (ICT)"
+  },
+  {
     id: "mexico",
     name: "Mexico",
     country: "Mexico",
     slug: "mexico",
     flag: "🇲🇽",
     city: "Guadalajara & Tijuana",
-    address: "Paseo de los Héroes 9510, Zona Urbana Rio Tijuana, B.C., 22010",
+    address: "LIV Fertility Center Paseo de Los Cocoteros No.55 piso 3, Nuevo Vallarta, 63735 Nuevo Vallarta, Mexico - Puerto Vallarta ,Mexico",
     phone: "+52 (664) 621-7171",
     email: "mexico@microsort.com",
     hours: "09:00 - 17:00 (CST)"
-  },
-  
-  {
-    id: "north-cyprus",
-    name: "North Cyprus",
-    country: "Cyprus",
-    slug: "north-cyprus",
-    flag: "🇨🇾",
-    city: "Nicosia",
-    address: "Bedreddin Demirel Ave, Nicosia, 99010",
-    phone: "+90 (392) 227-8000",
-    email: "cyprus@microsort.com",
-    hours: "09:00 - 18:00 (EET)"
   },
   {
     id: "japan",
@@ -59,18 +58,6 @@ export const locations = [
     phone: "+855 (23) 990-122",
     email: "cambodia@microsort.com",
     hours: "08:00 - 17:00 (ICT)"
-  },
-  {
-    id: "thailand",
-    name: "Thailand",
-    country: "Thailand",
-    slug: "thailand",
-    flag: "🇹🇭",
-    city: "Bangkok",
-    address: "Sukhumvit Rd, Khlong Toei, Bangkok, 10110",
-    phone: "+66 (2) 250-0120",
-    email: "thailand@microsort.com",
-    hours: "09:00 - 17:00 (ICT)"
   },
   {
     id: "nigeria",
