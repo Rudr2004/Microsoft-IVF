@@ -23,7 +23,8 @@ export default function LeadMagnet() {
           firstName: 'Checklist',
           lastName: 'Download',
           message: 'Requested the Planning Checklist',
-          goal: 'Checklist Download'
+          goal: 'Checklist Download',
+          listId: 10
         })
       });
 

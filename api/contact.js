@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   try {
     const { 
       email, firstName, lastName, country, message, honeypot,
-      phone, lab, goal, treatment, timeline 
+      phone, lab, goal, treatment, timeline, listId 
     } = req.body;
 
     // Basic spam protection (Honeypot)
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
         TREATMENT: treatment || '',
         TIMELINE: timeline || ''
       },
-      listIds: [BREVO_LIST_ID],
+      listIds: [listId || BREVO_LIST_ID],
       updateEnabled: true, // Prevents error if contact already exists
     };
 
