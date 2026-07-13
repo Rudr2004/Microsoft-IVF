@@ -290,13 +290,13 @@ export default function ProcessPage() {
               MicroSort® technology operates by measuring the specific volume of genetic material. A sperm cell containing an X chromosome (female) has approximately <strong className="text-[#0D4F6C]">2.8% more DNA material</strong> than one containing a Y chromosome (male).
             </p>
             <p className="text-sm text-[#4F5E6A] leading-relaxed">
-              To isolate this small difference, the laboratory requires between <strong className="text-[#0D4F6C]">6 to 7 hours</strong> of active clinical workflow under rigorous regulatory controls.
+              To isolate this small difference, the laboratory requires between <strong className="text-[#0D4F6C]">3 to 4 hours</strong> of active clinical workflow under rigorous regulatory controls.
             </p>
           </div>
           <div className="shrink-0 flex items-center justify-center bg-[#0D4F6C]/5 p-6 rounded-2xl border border-[#E2E8ED] w-full md:w-auto">
             <div className="text-center">
               <Clock size={36} className="text-[#1A7FA0] mx-auto mb-2.5 stroke-[1.75]" />
-              <div className="text-2xl font-display text-[#0D4F6C] font-normal">6 - 7 Hours</div>
+              <div className="text-2xl font-display text-[#0D4F6C] font-normal">3 - 4 Hours</div>
               <div className="text-[10px] text-[#5A6B77] font-bold uppercase tracking-wider mt-0.5">Laboratory Prep Time</div>
             </div>
           </div>
