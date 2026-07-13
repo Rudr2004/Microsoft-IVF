@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
-import { Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock } from 'lucide-react';
+import { Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock, Loader2, AlertCircle } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 
 export default function ContactPage() {
@@ -10,14 +10,48 @@ export default function ContactPage() {
     name: '',
     email: '',
     country: 'Mexico',
-    message: ''
+    message: '',
+    honeypot: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate API call
-    setIsSubmitted(true);
+    setError('');
+    setIsSubmitting(true);
+    
+    try {
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0];
+      const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          firstName,
+          lastName,
+          country: formData.country,
+          message: formData.message,
+          honeypot: formData.honeypot
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form');
+      }
+      
+      setIsSubmitted(true);
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const countries = [
@@ -98,18 +132,34 @@ export default function ContactPage() {
             <div className="bg-surface border border-border rounded-3xl p-6 sm:p-10 shadow-sm relative">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
-                  <form onSubmit={(e) => e.preventDefault()} className="space-y-6 opacity-80">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <h3 className="text-xl font-display text-primary mb-2 font-normal">
                       Send an Inquiry
                     </h3>
-                    
-                    <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-left text-amber-900 text-xs leading-relaxed mb-6">
-                      <strong>Online Form Submissions Offline:</strong> To protect patient medical privacy and ensure compliance with healthcare communications standards, online contact submissions are temporarily disabled. Please submit all inquiries directly via the international coordination office email or phone listed on the left.
-                    </div>
+
+                    {error && (
+                      <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl flex items-start gap-3 text-left text-red-900 text-sm leading-relaxed mb-6">
+                        <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
+                        <div>{error}</div>
+                      </div>
+                    )}
 
                     <p className="text-muted text-xs font-sans mb-6">
                       Complete the form below to prepare your inquiry before contacting us. Please do not share medical test reports directly through this form.
                     </p>
+
+                    {/* Hidden Honeypot Field */}
+                    <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden="true">
+                      <label htmlFor="form-honeypot">Leave this field empty</label>
+                      <input
+                        id="form-honeypot"
+                        type="text"
+                        tabIndex="-1"
+                        autoComplete="off"
+                        value={formData.honeypot}
+                        onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                      />
+                    </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       {/* Name */}
@@ -120,12 +170,11 @@ export default function ContactPage() {
                         <input
                           id="form-name"
                           type="text"
-                          disabled
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="Your name (Disabled)"
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans cursor-not-allowed"
+                          placeholder="Your name"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
                         />
                       </div>
 
@@ -137,12 +186,11 @@ export default function ContactPage() {
                         <input
                           id="form-email"
                           type="email"
-                          disabled
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="your.name@domain.com (Disabled)"
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans cursor-not-allowed"
+                          placeholder="your.name@domain.com"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
                         />
                       </div>
                     </div>
@@ -155,10 +203,9 @@ export default function ContactPage() {
                       <div className="relative">
                         <select
                           id="form-country"
-                          disabled
                           value={formData.country}
                           onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none cursor-not-allowed"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
                         >
                           {countries.map((c) => (
                             <option key={c} value={c}>{c}</option>
@@ -179,21 +226,33 @@ export default function ContactPage() {
                       </label>
                       <textarea
                         id="form-message"
-                        disabled
                         required
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Write details of your inquiry or scheduling questions... (Disabled)"
-                        className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans resize-none cursor-not-allowed"
+                        placeholder="Write details of your inquiry or scheduling questions..."
+                        className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans resize-none"
                       />
                     </div>
 
-                    {/* Locked Status Indicator */}
-                    <div className="w-full flex items-center justify-center gap-2 bg-[#F1F3F5] text-[#8A99A8] font-sans font-semibold text-sm rounded-full py-3.5 border border-[#E2E8ED] select-none cursor-not-allowed">
-                      <Lock size={14} className="text-[#8A99A8]" />
-                      <span>Submit Inquiry</span>
-                    </div>
+                    {/* Submit Button */}
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-full py-3.5 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin" />
+                          <span>Sending Inquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={16} />
+                          <span>Submit Inquiry</span>
+                        </>
+                      )}
+                    </button>
                   </form>
                 ) : (
                   <div className="flex flex-col items-center justify-center text-center py-12">
@@ -204,8 +263,11 @@ export default function ContactPage() {
                       Thank You!
                     </h3>
                     <p className="text-muted text-sm leading-relaxed max-w-sm mb-8 font-sans">
-                      Your message has been sent.
+                      Your message has been successfully sent. Our coordination team will review your inquiry and get back to you within 24 business hours.
                     </p>
+                    <Button variant="outline" onClick={() => setIsSubmitted(false)}>
+                      Send Another Message
+                    </Button>
                   </div>
                 )}
               </AnimatePresence>
@@ -218,3 +280,4 @@ export default function ContactPage() {
     </div>
   );
 }
+
