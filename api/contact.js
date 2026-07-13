@@ -46,6 +46,8 @@ export default async function handler(req, res) {
       updateEnabled: true, // Prevents error if contact already exists
     };
 
+    console.log('Sending payload to Brevo:', JSON.stringify(payload));
+
     // Call Brevo API
     const response = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
