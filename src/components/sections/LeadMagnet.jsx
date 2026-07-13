@@ -73,39 +73,39 @@ export default function LeadMagnet() {
             </ul>
           </div>
           
-          <div className="flex-1 w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-xl text-primary">
+          <div className="flex-1 w-full max-w-md bg-white rounded-3xl p-8 sm:p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] text-primary">
             {status === 'success' ? (
               <div className="text-center py-6">
                 <div className="w-16 h-16 bg-[#E6F4EA] rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle size={32} className="text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-display text-primary mb-2">Checklist Sent!</h3>
-                <p className="text-sm text-muted font-sans">
+                <p className="text-sm text-muted font-sans mb-8">
                   Check your inbox. We&apos;ve sent the download link to your email.
                 </p>
                 <Button 
                   variant="outline" 
-                  className="mt-6 w-full"
+                  className="w-full justify-center"
                   onClick={() => setStatus('idle')}
                 >
                   Download Another Copy
                 </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-display font-semibold mb-1">Send to my inbox</h3>
-                  <p className="text-xs text-muted font-sans">Enter your email to receive the PDF instantly.</p>
+              <form onSubmit={handleSubmit} className="flex flex-col">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-display font-normal mb-2">Send to my inbox</h3>
+                  <p className="text-sm text-muted font-sans">Enter your email to receive the PDF instantly.</p>
                 </div>
                 
                 {status === 'error' && (
-                  <div className="bg-red-50 text-red-600 text-sm p-3 rounded-xl mb-4 font-sans border border-red-100">
+                  <div className="bg-red-50 text-red-600 text-sm p-4 rounded-xl mb-6 font-sans border border-red-100">
                     {errorMessage}
                   </div>
                 )}
                 
-                <div>
-                  <label htmlFor="lm-email" className="sr-only">Email Address</label>
+                <div className="mb-6">
+                  <label htmlFor="lm-email" className="text-xs font-bold uppercase tracking-wider text-muted mb-2 block">Email Address</label>
                   <input
                     id="lm-email"
                     type="email"
@@ -113,15 +113,15 @@ export default function LeadMagnet() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your.email@domain.com"
-                    className="w-full bg-[#F8F9FB] border border-[#E2E8ED] text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
+                    className="w-full bg-[#F8F9FB] border border-[#E2E8ED] text-primary rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
                   />
                 </div>
                 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-4 mb-6">
                   <button 
                     type="submit" 
                     disabled={status === 'submitting'}
-                    className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-xl py-3.5 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-xl py-4 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {status === 'submitting' ? (
                       <>
@@ -135,15 +135,21 @@ export default function LeadMagnet() {
                       </>
                     )}
                   </button>
+                  <div className="relative flex items-center py-2">
+                    <div className="flex-grow border-t border-border"></div>
+                    <span className="flex-shrink-0 mx-4 text-muted text-xs uppercase tracking-wider font-semibold">Or</span>
+                    <div className="flex-grow border-t border-border"></div>
+                  </div>
                   <Button 
                     href="/contact" 
                     variant="outline" 
-                    className="w-full justify-center text-sm rounded-xl py-3.5 border-[#E2E8ED] bg-[#F8F9FB] hover:bg-white text-[#0D4F6C]"
+                    className="w-full justify-center text-sm rounded-xl py-4 border-[#E2E8ED] bg-white hover:bg-[#F8F9FB] text-[#0D4F6C]"
                   >
                     Check Eligibility
                   </Button>
                 </div>
-                <p className="text-[10px] text-center text-muted mt-4">
+                
+                <p className="text-[11px] leading-relaxed text-center text-muted">
                   By downloading, you agree to receive our educational emails. We respect your privacy and will never share your information.
                 </p>
               </form>

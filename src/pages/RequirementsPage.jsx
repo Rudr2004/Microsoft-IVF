@@ -97,8 +97,8 @@ export default function RequirementsPage() {
   };
 
   return (
-    <div className="bg-[#F8F9FB] py-16 md:py-24 font-sans text-[#1C2B35]">
-      <div className="max-w-[68ch] mx-auto px-4 sm:px-6">
+    <div className="bg-[#F8F9FB] font-sans text-[#1C2B35]">
+      <div className="pt-16 md:pt-24 pb-20 md:pb-32 max-w-[68ch] mx-auto px-4 sm:px-6">
         
         {/* Header */}
         <SectionHeader
@@ -109,7 +109,7 @@ export default function RequirementsPage() {
         />
 
         {/* PRINT ONLY HEADER */}
-        <div className="hidden print:block mb-8 border-b-2 border-[#0D4F6C] pb-4">
+        <div className="hidden print:block mb-12 border-b-2 border-[#0D4F6C] pb-4">
           <h1 className="text-3xl font-bold text-[#0D4F6C]">MicroSort® Laboratory Requirements Checklist</h1>
           <p className="text-sm text-gray-600 mt-1">Generated on: {new Date().toLocaleDateString()} | Clinic & Patient Copy</p>
           <p className="text-sm text-gray-600">Selected Laboratory: {labTests[selectedLab].name} | Treatment: {selectedTreatment.toUpperCase()}</p>
@@ -119,7 +119,7 @@ export default function RequirementsPage() {
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="space-y-12"
+          className="space-y-12 sm:space-y-16"
         >
           
           {/* SECTION 1: At-a-Glance Eligibility */}
@@ -708,12 +708,12 @@ export default function RequirementsPage() {
               </div>
    
               {/* CTAs */}
-              <div className="border-t border-[#E2E8ED] pt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+              <div className="border-t border-[#E2E8ED] pt-10 mt-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
                 <Button 
                   href="/contact" 
-                  variant="primary"
-                  size="md"
-                  className="w-full sm:w-auto text-center font-sans"
+                  variant="primary" 
+                  size="md" 
+                  className="w-full sm:w-auto text-center font-sans px-8"
                 >
                   <span>Check Eligibility</span>
                 </Button>
@@ -721,7 +721,7 @@ export default function RequirementsPage() {
                   onClick={handlePrint}
                   variant="outline"
                   size="md"
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 text-center font-sans"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 text-center font-sans px-8"
                 >
                   <Printer size={16} />
                   <span>Print My Testing Checklist</span>

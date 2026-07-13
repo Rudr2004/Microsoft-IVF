@@ -18,12 +18,12 @@ export default function CtaModule() {
         <p className="text-muted text-lg font-sans mb-10 max-w-2xl mx-auto">
           Start with a private eligibility review. No medical documents are required to begin.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href="/contact" size="lg" className="w-full sm:w-auto min-w-[220px] justify-center text-sm group">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <Button href="/contact" size="lg" className="w-full sm:w-auto justify-center text-sm group px-8">
             <span>Check Eligibility & Request a Consultation</span>
             <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button href="/contact" variant="outline" size="lg" className="w-full sm:w-auto min-w-[220px] justify-center text-sm">
+          <Button href="/contact" variant="outline" size="lg" className="w-full sm:w-auto justify-center text-sm px-8">
             <MessageSquare size={16} className="mr-2" />
             <span>Talk to a Coordinator</span>
           </Button>
