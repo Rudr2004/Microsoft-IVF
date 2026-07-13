@@ -169,10 +169,10 @@ export default function Navbar() {
           {/* Hamburger Menu Toggle (Mobile) */}
           <div className="lg:hidden flex items-center gap-3">
             <Link 
-              to="/verify" 
+              to="/contact" 
               className="text-xs bg-accent/20 border border-accent/30 text-primary px-3 py-1.5 rounded-full font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              Verify Sort
+              Confirm Eligibility
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}

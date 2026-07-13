@@ -12,7 +12,10 @@ export default async function handler(req, res) {
   const BREVO_LIST_ID = 6; 
 
   try {
-    const { email, firstName, lastName, country, message, honeypot } = req.body;
+    const { 
+      email, firstName, lastName, country, message, honeypot,
+      phone, lab, goal, treatment, timeline 
+    } = req.body;
 
     // Basic spam protection (Honeypot)
     // If a bot fills out the hidden honeypot field, we quietly succeed
@@ -41,6 +44,11 @@ export default async function handler(req, res) {
         LASTNAME: lastName || '',
         COUNTRY: country || '',
         MESSAGE: message || '',
+        PHONE: phone || '',
+        LAB: lab || '',
+        GOAL: goal || '',
+        TREATMENT: treatment || '',
+        TIMELINE: timeline || ''
       },
       listIds: [BREVO_LIST_ID],
       updateEnabled: true, // Prevents error if contact already exists

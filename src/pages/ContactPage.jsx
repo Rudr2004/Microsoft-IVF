@@ -1,21 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
 import { Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock, Loader2, AlertCircle } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 
 export default function ContactPage() {
+  const [searchParams] = useSearchParams();
+  const preselectedLab = searchParams.get('lab') || 'Mexico';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     country: 'Mexico',
+    lab: preselectedLab,
+    goal: 'Family Balancing',
+    treatment: 'IVF with PGT-A',
+    timeline: 'Within 3 months',
     message: '',
     honeypot: ''
   });
+  
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+
+  // Update lab if URL parameter changes
+  useEffect(() => {
+    if (searchParams.get('lab')) {
+      setFormData(prev => ({ ...prev, lab: searchParams.get('lab') }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +52,11 @@ export default function ContactPage() {
           firstName,
           lastName,
           country: formData.country,
+          phone: formData.phone,
+          lab: formData.lab,
+          goal: formData.goal,
+          treatment: formData.treatment,
+          timeline: formData.timeline,
           message: formData.message,
           honeypot: formData.honeypot
         })
@@ -55,7 +77,29 @@ export default function ContactPage() {
   };
 
   const countries = [
-    "Mexico", "North Cyprus", "Malaysia"
+    "Mexico", "North Cyprus", "Malaysia", "United States", "Canada", "United Kingdom", "Australia", "Other"
+  ];
+
+  const labs = ["Mexico", "North Cyprus", "Malaysia"];
+  
+  const goals = [
+    "Family Balancing (Gender Selection)", 
+    "Genetic Disease Prevention",
+    "I'm not sure yet"
+  ];
+
+  const treatments = [
+    "IVF with PGT-A",
+    "IUI (Intrauterine Insemination)",
+    "Just MicroSort sperm sorting",
+    "I need guidance on treatment options"
+  ];
+
+  const timelines = [
+    "Immediately (Next cycle)",
+    "Within 3 months",
+    "Within 6 months",
+    "Planning for next year"
   ];
 
   return (
@@ -65,7 +109,7 @@ export default function ContactPage() {
         {/* Header */}
         <SectionHeader
           eyebrow="Reach Our Teams"
-          title="Contact Us"
+          title="Confirm Eligibility"
           subtitle="Speak with a MicroSort® specialist today. All inquiries are handled with strict clinical privacy and confidentiality."
         />
 
@@ -125,6 +169,27 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+            
+            {/* New Trust Badges as requested */}
+            <div className="bg-surface border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
+              <h4 className="text-sm font-display text-primary mb-4 font-semibold">
+                What to expect
+              </h4>
+              <ul className="space-y-3 text-sm text-muted font-sans">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>100% Private and confidential inquiry</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>No medical documents required to start</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>Direct contact with Authorized MicroSort laboratories only</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Right Column: Form (7 cols) */}
@@ -132,10 +197,13 @@ export default function ContactPage() {
             <div className="bg-surface border border-border rounded-3xl p-6 sm:p-10 shadow-sm relative">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <h3 className="text-xl font-display text-primary mb-2 font-normal">
-                      Send an Inquiry
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <h3 className="text-xl font-display text-primary mb-1 font-normal">
+                      Request a Private Consultation
                     </h3>
+                    <p className="text-muted text-xs font-sans mb-6">
+                      Complete this form to have a coordinator review your situation and check your eligibility. 
+                    </p>
 
                     {error && (
                       <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl flex items-start gap-3 text-left text-red-900 text-sm leading-relaxed mb-6">
@@ -143,10 +211,6 @@ export default function ContactPage() {
                         <div>{error}</div>
                       </div>
                     )}
-
-                    <p className="text-muted text-xs font-sans mb-6">
-                      Complete the form below to prepare your inquiry before contacting us. Please do not share medical test reports directly through this form.
-                    </p>
 
                     {/* Hidden Honeypot Field */}
                     <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden="true">
@@ -173,7 +237,7 @@ export default function ContactPage() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="Your name"
+                          placeholder="Your full name"
                           className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
                         />
                       </div>
@@ -189,32 +253,149 @@ export default function ContactPage() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="your.name@domain.com"
+                          placeholder="your.email@domain.com"
                           className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
                         />
                       </div>
                     </div>
 
-                    {/* Country Selector */}
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="form-country" className="text-[10px] font-bold uppercase tracking-wider text-muted">
-                        Country of Residence
-                      </label>
-                      <div className="relative">
-                        <select
-                          id="form-country"
-                          value={formData.country}
-                          onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
-                        >
-                          {countries.map((c) => (
-                            <option key={c} value={c}>{c}</option>
-                          ))}
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-primary">
-                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                          </svg>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {/* Phone / WhatsApp */}
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="form-phone" className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                          Phone / WhatsApp
+                        </label>
+                        <input
+                          id="form-phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="+1 (555) 000-0000"
+                          className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
+                        />
+                      </div>
+
+                      {/* Country Selector */}
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="form-country" className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                          Country of Residence
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="form-country"
+                            value={formData.country}
+                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                            className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
+                          >
+                            {countries.map((c) => (
+                              <option key={c} value={c}>{c}</option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-primary">
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {/* Preferred Lab */}
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="form-lab" className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                          Preferred Lab
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="form-lab"
+                            value={formData.lab}
+                            onChange={(e) => setFormData({ ...formData, lab: e.target.value })}
+                            className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
+                          >
+                            {labs.map((l) => (
+                              <option key={l} value={l}>{l}</option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-primary">
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Goal */}
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="form-goal" className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                          Primary Goal
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="form-goal"
+                            value={formData.goal}
+                            onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
+                            className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
+                          >
+                            {goals.map((g) => (
+                              <option key={g} value={g}>{g}</option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-primary">
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {/* Treatment Type */}
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="form-treatment" className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                          Treatment Type
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="form-treatment"
+                            value={formData.treatment}
+                            onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
+                            className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
+                          >
+                            {treatments.map((t) => (
+                              <option key={t} value={t}>{t}</option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-primary">
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Timeline */}
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="form-timeline" className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                          Timeline
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="form-timeline"
+                            value={formData.timeline}
+                            onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                            className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans appearance-none"
+                          >
+                            {timelines.map((t) => (
+                              <option key={t} value={t}>{t}</option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-primary">
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -222,15 +403,15 @@ export default function ContactPage() {
                     {/* Message */}
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="form-message" className="text-[10px] font-bold uppercase tracking-wider text-muted">
-                        Message / Inquiry details
+                        Message / Additional details
                       </label>
                       <textarea
                         id="form-message"
                         required
-                        rows={5}
+                        rows={3}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Write details of your inquiry or scheduling questions..."
+                        placeholder="Any specific questions or clinical details you'd like us to know?"
                         className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans resize-none"
                       />
                     </div>
@@ -239,17 +420,17 @@ export default function ContactPage() {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-full py-3.5 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-full py-3.5 transition-colors disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                     >
                       {isSubmitting ? (
                         <>
                           <Loader2 size={16} className="animate-spin" />
-                          <span>Sending Inquiry...</span>
+                          <span>Checking Eligibility...</span>
                         </>
                       ) : (
                         <>
                           <Send size={16} />
-                          <span>Submit Inquiry</span>
+                          <span>Confirm Eligibility & Send Inquiry</span>
                         </>
                       )}
                     </button>
@@ -260,13 +441,13 @@ export default function ContactPage() {
                       <CheckCircle2 size={36} className="text-[#0D4F6C]" />
                     </div>
                     <h3 className="text-2xl font-display text-primary mb-3 font-normal">
-                      Thank You!
+                      Inquiry Received
                     </h3>
                     <p className="text-muted text-sm leading-relaxed max-w-sm mb-8 font-sans">
-                      Your message has been successfully sent. Our coordination team will review your inquiry and get back to you within 24 business hours.
+                      Thank you for contacting us. A MicroSort® coordinator will review your eligibility and reach out to you within 24 business hours.
                     </p>
                     <Button variant="outline" onClick={() => setIsSubmitted(false)}>
-                      Send Another Message
+                      Submit Another Inquiry
                     </Button>
                   </div>
                 )}

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeader from '../components/ui/SectionHeader';
 import { Layers, Droplets, Zap, Split, FlaskConical, Clock, ChevronRight, Check } from 'lucide-react';
 import Badge from '../components/ui/Badge';
+import CtaModule from '../components/sections/CtaModule';
 
 export default function ProcessPage() {
   const [activeStep, setActiveStep] = useState(0);
@@ -445,14 +446,13 @@ export default function ProcessPage() {
                         <span>Next Step</span>
                         <ChevronRight size={14} />
                       </button>
-                    ) : (
-                      <Link
-                        to="/planning"
-                        className="text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-700 px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm"
-                      >
-                        <Check size={14} />
-                        <span>Schedule Sort</span>
-                      </Link>
+                        <Link
+                          to="/contact"
+                          className="text-xs font-bold bg-[#1A7FA0] text-white hover:bg-[#0D4F6C] px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm"
+                        >
+                          <Check size={14} />
+                          <span>Confirm Eligibility</span>
+                        </Link>
                     )}
                   </div>
                 </div>
@@ -474,6 +474,8 @@ export default function ProcessPage() {
         </div>
 
       </div>
+
+      <CtaModule />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { locations } from '../data/locations';
 import SectionHeader from '../components/ui/SectionHeader';
 import { Phone, Mail, Clock, MapPin, Landmark } from 'lucide-react';
 import Badge from '../components/ui/Badge';
+import CtaModule from '../components/sections/CtaModule';
 
 export default function LocationsPage() {
   const { slug } = useParams();
@@ -174,6 +175,8 @@ export default function LocationsPage() {
         </div>
 
       </div>
+      
+      <CtaModule />
     </div>
   );
 }

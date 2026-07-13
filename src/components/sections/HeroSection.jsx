@@ -52,12 +52,12 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
-            <Button variant="secondary" size="lg" href="/process" className="group text-primary hover:bg-white">
-              <span>Find Out More</span>
+            <Button variant="secondary" size="lg" href="/contact" className="group text-primary hover:bg-white">
+              <span>Confirm Eligibility</span>
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" href="/planning" className="border-white/40 text-white hover:bg-white/10 hover:border-white">
-              Schedule Consultation
+            <Button variant="outline" size="lg" href="/process" className="border-white/40 text-white hover:bg-white/10 hover:border-white">
+              How it works
             </Button>
           </motion.div>
         </div>

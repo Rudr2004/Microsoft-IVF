@@ -100,7 +100,15 @@ export default function LocationSelector() {
               </div>
 
               {/* Action Button */}
-              <div className="pt-2 border-t border-border/40">
+              <div className="pt-4 border-t border-border/40 flex flex-col gap-2">
+                <Button 
+                  variant="primary" 
+                  size="sm" 
+                  href={`/contact?lab=${encodeURIComponent(loc.name)}`}
+                  className="w-full justify-center text-xs py-2 bg-[#1A7FA0] text-white hover:bg-[#0D4F6C]"
+                >
+                  Confirm Eligibility
+                </Button>
                 <Button 
                   variant="outline" 
                   size="sm" 

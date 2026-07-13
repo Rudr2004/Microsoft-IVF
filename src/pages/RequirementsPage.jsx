@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
+import CtaModule from '../components/sections/CtaModule';
+import LeadMagnet from '../components/sections/LeadMagnet';
 
 export default function RequirementsPage() {
   const [selectedLab, setSelectedLab] = useState('mexico');
@@ -713,7 +715,7 @@ export default function RequirementsPage() {
                   size="md"
                   className="w-full sm:w-auto text-center font-sans"
                 >
-                  <span>Speak with a Genetic Counselor</span>
+                  <span>Confirm Eligibility</span>
                 </Button>
                 <Button 
                   onClick={handlePrint}
@@ -730,6 +732,9 @@ export default function RequirementsPage() {
 
         </motion.div>
       </div>
+      
+      <LeadMagnet />
+      <CtaModule />
     </div>
   );
 }
