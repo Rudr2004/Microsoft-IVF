@@ -20,7 +20,7 @@ export default function CtaModule() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button href="/contact" size="lg" className="w-full sm:w-auto min-w-[220px] justify-center text-sm group">
-            <span>Check Eligibility</span>
+            <span>Check Eligibility & Request a Consultation</span>
             <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button href="/contact" variant="outline" size="lg" className="w-full sm:w-auto min-w-[220px] justify-center text-sm">

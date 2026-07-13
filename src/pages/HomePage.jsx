@@ -3,7 +3,6 @@ import HeroSection from '../components/sections/HeroSection';
 import QuickLinks from '../components/sections/QuickLinks';
 import WhatIsMicroSort from '../components/sections/WhatIsMicroSort';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
-import VerifySection from '../components/sections/VerifySection';
 import LearnMoreCards from '../components/sections/LearnMoreCards';
 import LocationSelector from '../components/sections/LocationSelector';
 
@@ -27,9 +26,6 @@ export default function HomePage() {
 
       {/* Contact directory select list */}
       <LocationSelector />
-
-      {/* Verification Code callout */}
-      <VerifySection />
     </div>
   );
 }

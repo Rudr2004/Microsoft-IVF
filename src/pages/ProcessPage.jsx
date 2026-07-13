@@ -452,7 +452,7 @@ export default function ProcessPage() {
                         className="text-xs font-bold bg-[#1A7FA0] text-white hover:bg-[#0D4F6C] px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm"
                       >
                         <Check size={14} />
-                        <span>Confirm Eligibility</span>
+                        <span>Check Eligibility</span>
                       </Link>
                     )}
                   </div>

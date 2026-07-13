@@ -172,7 +172,7 @@ export default function Navbar() {
               to="/contact" 
               className="text-xs bg-accent/20 border border-accent/30 text-primary px-3 py-1.5 rounded-full font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              Check My Eligibility
+              Check Eligibility
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}

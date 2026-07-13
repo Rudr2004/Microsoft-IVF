@@ -140,7 +140,7 @@ export default function LeadMagnet() {
                     variant="outline" 
                     className="w-full justify-center text-sm rounded-xl py-3.5 border-[#E2E8ED] bg-[#F8F9FB] hover:bg-white text-[#0D4F6C]"
                   >
-                    Have a Coordinator Review My Situation
+                    Check Eligibility
                   </Button>
                 </div>
                 <p className="text-[10px] text-center text-muted mt-4">

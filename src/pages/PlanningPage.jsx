@@ -85,7 +85,7 @@ export default function PlanningPage() {
           
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4 w-full justify-end">
             <Button variant="secondary" size="md" href="/contact" className="w-full text-center">
-              Contact Coordinator
+              Check Eligibility
             </Button>
             <Button variant="outline" size="md" href="/locations" className="w-full text-center border-white/30 text-white hover:bg-white/10">
               Browse Lab Directory
