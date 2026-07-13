@@ -2,6 +2,7 @@ import React from 'react';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
 import { Calendar, Stethoscope, Clock, ShieldCheck, MapPin, Send, Compass } from 'lucide-react';
+import CtaModule from '../components/sections/CtaModule';
 
 const steps = [
   {
@@ -28,16 +29,19 @@ const steps = [
 
 export default function PlanningPage() {
   return (
-    <div className="bg-bg py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        
+    <div className="bg-bg">
+      <div className="pt-16 md:pt-24 pb-12 max-w-6xl mx-auto px-6">
         {/* Header */}
         <SectionHeader
           eyebrow="Journey Roadmap"
           title="Planning Your Visit"
           subtitle="A structured overview on how to prepare, coordinate, and schedule your MicroSort® procedure with laboratories and fertility experts."
         />
+      </div>
 
+      <CtaModule />
+
+      <div className="max-w-6xl mx-auto px-6 py-16">
         {/* 4-Step grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {steps.map((step, idx) => {
@@ -90,6 +94,8 @@ export default function PlanningPage() {
         </div>
 
       </div>
+      
+      <CtaModule />
     </div>
   );
 }

@@ -18,7 +18,7 @@ export default function LearnMoreCards() {
           <Card
             title="Learn More"
             description="Hoping for a baby girl? … or perhaps a baby boy? Increase the probability of conceiving a child of your preferred chromosomal sex with the scientifically proven MicroSort® preconception method."
-            cta="Find Out More"
+            cta="How MicroSort Works"
             href="/process"
             icon={Sparkles}
           />
@@ -27,7 +27,7 @@ export default function LearnMoreCards() {
           <Card
             title="Do I Qualify?"
             description="You can qualify for MicroSort based on two separate guidelines: seeking family balancing (achieving balanced representation of chromosomal sex in your family) or wishing to reduce the risk of transmitting X-linked genetic conditions."
-            cta="Find Out More"
+            cta="Check Eligibility Requirements"
             href="/requirements"
             icon={UserCheck}
           />
@@ -36,8 +36,8 @@ export default function LearnMoreCards() {
           <Card
             title="Get Started"
             description="Begin the process that will increase your chances of conceiving a baby of your preferred sex! Your first step is to arrange a consultation with a MicroSort® laboratory or participating physician. After clinical review, you can schedule your specimen sort."
-            cta="Find Out More"
-            href="/planning"
+            cta="Request a Consultation"
+            href="/contact"
             icon={CalendarDays}
           />
         </div>

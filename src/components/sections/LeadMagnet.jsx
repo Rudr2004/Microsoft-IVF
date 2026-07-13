@@ -117,23 +117,32 @@ export default function LeadMagnet() {
                   />
                 </div>
                 
-                <button 
-                  type="submit" 
-                  disabled={status === 'submitting'}
-                  className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-xl py-3.5 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  {status === 'submitting' ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Get the Checklist</span>
-                      <ArrowRight size={16} />
-                    </>
-                  )}
-                </button>
+                <div className="flex flex-col gap-3">
+                  <button 
+                    type="submit" 
+                    disabled={status === 'submitting'}
+                    className="w-full flex items-center justify-center gap-2 bg-[#1A7FA0] hover:bg-[#0D4F6C] text-white font-sans font-semibold text-sm rounded-xl py-3.5 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {status === 'submitting' ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Email Me the Checklist</span>
+                        <ArrowRight size={16} />
+                      </>
+                    )}
+                  </button>
+                  <Button 
+                    href="/contact" 
+                    variant="outline" 
+                    className="w-full justify-center text-sm rounded-xl py-3.5 border-[#E2E8ED] bg-[#F8F9FB] hover:bg-white text-[#0D4F6C]"
+                  >
+                    Have a Coordinator Review My Situation
+                  </Button>
+                </div>
                 <p className="text-[10px] text-center text-muted mt-4">
                   By downloading, you agree to receive our educational emails. We respect your privacy and will never share your information.
                 </p>

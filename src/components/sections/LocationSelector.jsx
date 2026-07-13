@@ -107,16 +107,34 @@ export default function LocationSelector() {
                   href={`/contact?lab=${encodeURIComponent(loc.name)}`}
                   className="w-full justify-center text-xs py-2 bg-[#1A7FA0] text-white hover:bg-[#0D4F6C]"
                 >
-                  Confirm Eligibility
+                  Request Consultation at {loc.name}
                 </Button>
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  href={`/locations/${loc.slug}`}
-                  className="w-full justify-center group text-xs py-2"
+                  href={`/contact?lab=${encodeURIComponent(loc.name)}`}
+                  className="w-full justify-center text-xs py-2 bg-[#F8F9FB] hover:bg-white text-[#0D4F6C]"
                 >
-                  <span>Lab Details</span>
-                  <ArrowRight size={12} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
+                  Ask This Lab a Question
+                </Button>
+                {loc.phone && (
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`}
+                    className="w-full justify-center text-xs py-2 border-transparent text-[#4F5E6A] hover:bg-black/5"
+                  >
+                    Call / WhatsApp
+                  </Button>
+                )}
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  href={`/locations/${loc.slug}`}
+                  className="w-full justify-center group text-[10px] py-1 border-transparent hover:bg-black/5 mt-1"
+                >
+                  <span>View Lab Details</span>
+                  <ArrowRight size={10} className="ml-1 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </motion.div>

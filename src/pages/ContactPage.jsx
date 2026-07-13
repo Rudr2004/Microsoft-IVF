@@ -415,6 +415,15 @@ export default function ContactPage() {
                         className="w-full bg-bg border border-border text-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans resize-none"
                       />
                     </div>
+                    {/* Inline Trust Messages */}
+                    <div className="flex flex-col gap-2 mt-4 mb-2">
+                      <div className="flex flex-col sm:flex-row gap-x-4 gap-y-2 text-[11px] text-muted font-sans font-medium justify-center items-center flex-wrap">
+                        <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-accent"/> Private inquiry</span>
+                        <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-accent"/> No medical documents required to start</span>
+                        <span className="flex items-center gap-1.5"><Clock size={14} className="text-accent"/> Coordinator response within 24 business hours</span>
+                        <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-accent"/> Authorized MicroSort laboratories only</span>
+                      </div>
+                    </div>
 
                     {/* Submit Button */}
                     <button 
@@ -430,7 +439,7 @@ export default function ContactPage() {
                       ) : (
                         <>
                           <Send size={16} />
-                          <span>Confirm Eligibility & Send Inquiry</span>
+                          <span>Check Eligibility & Send Inquiry</span>
                         </>
                       )}
                     </button>

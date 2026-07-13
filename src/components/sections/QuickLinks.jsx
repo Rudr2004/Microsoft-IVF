@@ -20,20 +20,14 @@ const links = [
     href: "/planning",
     description: "Prepare for your laboratory visit and schedule tests.",
     icon: CalendarDays,
-  },
-  {
-    label: "Results",
-    href: "/verify",
-    description: "Verify your specimen sort and view laboratory reports.",
-    icon: Award,
-  },
+  }
 ];
 
 export default function QuickLinks() {
   return (
     <section className="relative z-20 -mt-4 md:-mt-8 px-6 mb-16 pt-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {links.map((item, idx) => {
             const Icon = item.icon;
             return (
