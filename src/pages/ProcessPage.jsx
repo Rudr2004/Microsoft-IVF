@@ -446,13 +446,14 @@ export default function ProcessPage() {
                         <span>Next Step</span>
                         <ChevronRight size={14} />
                       </button>
-                        <Link
-                          to="/contact"
-                          className="text-xs font-bold bg-[#1A7FA0] text-white hover:bg-[#0D4F6C] px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm"
-                        >
-                          <Check size={14} />
-                          <span>Confirm Eligibility</span>
-                        </Link>
+                    ) : (
+                      <Link
+                        to="/contact"
+                        className="text-xs font-bold bg-[#1A7FA0] text-white hover:bg-[#0D4F6C] px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm"
+                      >
+                        <Check size={14} />
+                        <span>Confirm Eligibility</span>
+                      </Link>
                     )}
                   </div>
                 </div>

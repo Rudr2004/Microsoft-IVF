@@ -81,7 +81,7 @@ export default function LeadMagnet() {
                 </div>
                 <h3 className="text-xl font-display text-primary mb-2">Checklist Sent!</h3>
                 <p className="text-sm text-muted font-sans">
-                  Check your inbox. We've sent the download link to your email.
+                  Check your inbox. We&apos;ve sent the download link to your email.
                 </p>
                 <Button 
                   variant="outline" 
