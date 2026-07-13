@@ -63,7 +63,7 @@ export default function HeroSection() {
             <Button 
               variant="outline" 
               href="/process" 
-              className="border-white/40 text-white hover:bg-white/10 hover:border-white text-sm px-8 py-3.5 sm:px-10"
+              className="border-white/40 text-white hover:bg-white/10 hover:border-white text-sm px-8 py-3.5 sm:px-10 whitespace-nowrap"
             >
               <span className="text-center">How MicroSort Works</span>
             </Button>
