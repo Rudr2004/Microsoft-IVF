@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   // Replace this number with the actual List ID 
   // for your "Contact Us Form" list in Brevo.
   // ==========================================
-  const BREVO_LIST_ID = 2; 
+  const BREVO_LIST_ID = 6; 
 
   try {
     const { email, firstName, lastName, country, message, honeypot } = req.body;
