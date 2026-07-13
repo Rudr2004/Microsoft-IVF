@@ -715,7 +715,7 @@ export default function RequirementsPage() {
                   size="md"
                   className="w-full sm:w-auto text-center font-sans"
                 >
-                  <span>Confirm Eligibility</span>
+                  <span>Check Eligibility</span>
                 </Button>
                 <Button 
                   onClick={handlePrint}

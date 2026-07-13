@@ -109,7 +109,7 @@ export default function ContactPage() {
         {/* Header */}
         <SectionHeader
           eyebrow="Reach Our Teams"
-          title="Confirm Eligibility"
+          title="Check Eligibility & Request a Consultation"
           subtitle="Speak with a MicroSort® specialist today. All inquiries are handled with strict clinical privacy and confidentiality."
         />
 
