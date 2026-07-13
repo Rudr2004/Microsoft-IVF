@@ -434,12 +434,12 @@ export default function ContactPage() {
                       {isSubmitting ? (
                         <>
                           <Loader2 size={16} className="animate-spin" />
-                          <span>Checking Eligibility...</span>
+                          <span>Sending Inquiry...</span>
                         </>
                       ) : (
                         <>
                           <Send size={16} />
-                          <span>Check Eligibility & Send Inquiry</span>
+                          <span>Send Private Inquiry</span>
                         </>
                       )}
                     </button>
