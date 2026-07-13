@@ -52,12 +52,20 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
-            <Button variant="secondary" size="lg" href="/contact" className="group text-primary hover:bg-white text-sm sm:text-base">
-              <span>Check Eligibility & Request a Consultation</span>
-              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button 
+              variant="secondary" 
+              href="/contact" 
+              className="group text-primary hover:bg-white text-sm px-8 py-3.5 sm:px-10"
+            >
+              <span className="text-center">Check Eligibility & Request a Consultation</span>
+              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
             </Button>
-            <Button variant="outline" size="lg" href="/process" className="border-white/40 text-white hover:bg-white/10 hover:border-white">
-              How MicroSort Works
+            <Button 
+              variant="outline" 
+              href="/process" 
+              className="border-white/40 text-white hover:bg-white/10 hover:border-white text-sm px-8 py-3.5 sm:px-10"
+            >
+              <span className="text-center">How MicroSort Works</span>
             </Button>
           </motion.div>
         </div>
