@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import { Download, CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
 import Button from '../ui/Button';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function LeadMagnet() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle, submitting, success, error
   const [errorMessage, setErrorMessage] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
+
+    if (!recaptchaToken) {
+      setStatus('error');
+      setErrorMessage('Please complete the reCAPTCHA verification.');
+      return;
+    }
 
     setStatus('submitting');
     
@@ -24,7 +32,8 @@ export default function LeadMagnet() {
           lastName: 'Download',
           message: 'Requested the Planning Checklist',
           goal: 'Checklist Download',
-          listId: 10
+          listId: 10,
+          recaptchaToken
         })
       });
 
@@ -115,6 +124,13 @@ export default function LeadMagnet() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your.email@domain.com"
                     className="w-full bg-[#F8F9FB] border border-[#E2E8ED] text-primary rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-sans"
+                  />
+                </div>
+                
+                <div className="flex justify-center mb-6">
+                  <ReCAPTCHA
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                    onChange={(token) => setRecaptchaToken(token)}
                   />
                 </div>
                 

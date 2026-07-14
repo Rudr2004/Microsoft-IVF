@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   try {
     const { 
       email, firstName, lastName, country, message, honeypot,
-      phone, lab, goal, treatment, timeline, listId 
+      phone, lab, goal, treatment, timeline, listId, recaptchaToken 
     } = req.body;
 
     // Basic spam protection (Honeypot)
@@ -27,6 +27,26 @@ export default async function handler(req, res) {
     // Basic required field validation
     if (!email || !firstName) {
       return res.status(400).json({ error: 'Missing required fields (email, firstName)' });
+    }
+
+    // Verify reCAPTCHA token
+    if (!recaptchaToken) {
+      return res.status(400).json({ error: 'Missing reCAPTCHA token. Please complete the captcha.' });
+    }
+
+    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (!recaptchaSecretKey) {
+      console.error('Missing RECAPTCHA_SECRET_KEY environment variable');
+      return res.status(500).json({ error: 'Server configuration error (reCAPTCHA missing)' });
+    }
+
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${recaptchaToken}`;
+    const recaptchaRes = await fetch(verifyUrl, { method: 'POST' });
+    const recaptchaData = await recaptchaRes.json();
+
+    if (!recaptchaData.success) {
+      console.error('reCAPTCHA verification failed:', recaptchaData);
+      return res.status(400).json({ error: 'reCAPTCHA verification failed. Please try again.' });
     }
 
     // Check for Vercel Environment Variable

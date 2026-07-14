@@ -5,6 +5,7 @@ import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
 import { Mail, Clock, ShieldCheck, Heart, Send, CheckCircle2, Lock, Loader2, AlertCircle } from 'lucide-react';
 import Badge from '../components/ui/Badge';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
@@ -26,6 +27,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
 
   // Update lab if URL parameter changes
   useEffect(() => {
@@ -36,6 +38,10 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!recaptchaToken) {
+      setError('Please complete the reCAPTCHA verification.');
+      return;
+    }
     setError('');
     setIsSubmitting(true);
     
@@ -58,7 +64,8 @@ export default function ContactPage() {
           treatment: formData.treatment,
           timeline: formData.timeline,
           message: formData.message,
-          honeypot: formData.honeypot
+          honeypot: formData.honeypot,
+          recaptchaToken
         })
       });
       
@@ -423,6 +430,13 @@ export default function ContactPage() {
                         <span className="flex items-center gap-1.5"><Clock size={14} className="text-accent"/> Coordinator response within 24 business hours</span>
                         <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-accent"/> Authorized MicroSort laboratories only</span>
                       </div>
+                    </div>
+
+                    <div className="flex justify-center my-4">
+                      <ReCAPTCHA
+                        sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                        onChange={(token) => setRecaptchaToken(token)}
+                      />
                     </div>
 
                     {/* Submit Button */}
