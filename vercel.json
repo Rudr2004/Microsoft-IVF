@@ -1,17 +1,17 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/japan", "destination": "/", "permanent": true },
-    { "source": "/mexico", "destination": "/", "permanent": true },
-    { "source": "/north-cyprus", "destination": "/", "permanent": true },
-    { "source": "/malaysia", "destination": "/", "permanent": true },
-    { "source": "/thailand", "destination": "/", "permanent": true },
-    { "source": "/cambodia", "destination": "/", "permanent": true },
-    { "source": "/switzerland", "destination": "/", "permanent": true },
-    { "source": "/nigeria", "destination": "/", "permanent": true },
+    { "source": "/japan", "destination": "/locations/japan", "permanent": true },
+    { "source": "/mexico", "destination": "/locations/mexico", "permanent": true },
+    { "source": "/north-cyprus", "destination": "/locations", "permanent": true },
+    { "source": "/malaysia", "destination": "/locations/malaysia", "permanent": true },
+    { "source": "/thailand", "destination": "/locations/thailand", "permanent": true },
+    { "source": "/cambodia", "destination": "/locations/cambodia", "permanent": true },
+    { "source": "/switzerland", "destination": "/locations", "permanent": true },
+    { "source": "/nigeria", "destination": "/locations/nigeria", "permanent": true },
     { "source": "/about", "destination": "/", "permanent": true },
-    { "source": "/contact-us", "destination": "/", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
     { "source": "/link", "destination": "/", "permanent": true },
-    { "source": "/results", "destination": "/", "permanent": true }
+    { "source": "/results", "destination": "/process", "permanent": true }
   ]
 }
