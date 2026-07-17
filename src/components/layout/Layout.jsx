@@ -10,10 +10,19 @@ export default function Layout() {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const supportRef = useRef(null);
 
-  // Scroll to top on route change
+  // Scroll to top on route change and track analytics
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+
+    // Track page views explicitly for Single Page Apps (React Router)
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
+  }, [location.pathname, location.search]);
 
   // Click outside to close support panel
   useEffect(() => {
