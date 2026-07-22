@@ -14,7 +14,8 @@ export default async function handler(req, res) {
   try {
     const { 
       email, firstName, lastName, country, message, honeypot,
-      phone, lab, goal, treatment, timeline, listId, recaptchaToken 
+      phone, lab, goal, treatment, timeline, listId, recaptchaToken,
+      customAttributes
     } = req.body;
 
     // Basic spam protection (Honeypot)
@@ -57,9 +58,11 @@ export default async function handler(req, res) {
     }
 
     // Prepare payload for Brevo Contacts API
-    const payload = {
-      email,
-      attributes: {
+    let attributes = {};
+    if (customAttributes) {
+      attributes = { ...customAttributes };
+    } else {
+      attributes = {
         FIRSTNAME: firstName,
         LASTNAME: lastName || '',
         COUNTRY: country || '',
@@ -69,7 +72,12 @@ export default async function handler(req, res) {
         GOAL: goal || '',
         TREATMENT: treatment || '',
         TIMELINE: timeline || ''
-      },
+      };
+    }
+
+    const payload = {
+      email,
+      attributes,
       listIds: [listId || BREVO_LIST_ID],
       updateEnabled: true, // Prevents error if contact already exists
     };

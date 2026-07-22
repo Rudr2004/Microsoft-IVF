@@ -56,16 +56,18 @@ export default function ContactPage() {
         body: JSON.stringify({
           email: formData.email,
           firstName,
-          lastName,
-          country: formData.country,
-          phone: formData.phone,
-          lab: formData.lab,
-          goal: formData.goal,
-          treatment: formData.treatment,
-          timeline: formData.timeline,
-          message: formData.message,
           honeypot: formData.honeypot,
-          recaptchaToken
+          recaptchaToken,
+          customAttributes: {
+            Full_name: `${firstName} ${lastName}`.trim(),
+            EMAIL_ADDRESS: formData.email,
+            COUNTRYOFRESIDENCE: formData.country,
+            PreferredLab: formData.lab,
+            PRIMARYGOAL: formData.goal,
+            TreatmentType: formData.treatment,
+            TIMELINE: formData.timeline,
+            Message_Additionaldetails: formData.message
+          }
         })
       });
       

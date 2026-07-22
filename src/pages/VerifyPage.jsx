@@ -37,12 +37,15 @@ export default function VerifyPage() {
         body: JSON.stringify({
           email: formData.email,
           firstName: formData.patientInitials.toUpperCase() || 'Verification',
-          lastName: 'Request',
-          lab: formData.location,
-          goal: 'Sort Verification Request',
-          message: `Date of Sort: ${formData.dateOfSort}\nPatient Initials: ${formData.patientInitials.toUpperCase()}\nNotes: ${formData.notes}`,
           listId: 11,
-          recaptchaToken
+          recaptchaToken,
+          customAttributes: {
+            DateofSort: formData.dateOfSort,
+            Sortlocation: formData.location,
+            PatientsLastNameFirst3Letters: formData.patientInitials.toUpperCase(),
+            Contactemailaddress: formData.email,
+            NotesOptional: formData.notes
+          }
         })
       });
       
