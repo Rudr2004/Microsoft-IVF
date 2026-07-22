@@ -40,16 +40,22 @@ export default function VerifyPage() {
           listId: 11,
           recaptchaToken,
           customAttributes: {
-            DateofSort: formData.dateOfSort,
-            Sortlocation: formData.location,
-            PatientsLastNameFirst3Letters: formData.patientInitials.toUpperCase(),
-            Contactemailaddress: formData.email,
-            NotesOptional: formData.notes
+            DATEOFSORT: formData.dateOfSort,
+            SORTLOCATION: formData.location,
+            PATIENTSLASTNAMEFIRST3LETTERS: formData.patientInitials.toUpperCase(),
+            CONTACTEMAILADDRESS: formData.email,
+            NOTESOPTIONAL: formData.notes
           }
         })
       });
       
       const data = await response.json();
+      
+      console.log('--- Brevo Sync Results ---');
+      console.log('Payload sent to Brevo:', data.brevoPayload);
+      console.log('Response from Brevo:', data.brevoResponse);
+      console.log('--------------------------');
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit verification request');
       }
