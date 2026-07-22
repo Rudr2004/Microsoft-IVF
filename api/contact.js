@@ -100,11 +100,13 @@ export default async function handler(req, res) {
     if (!response.ok) {
       console.error('Brevo API Error:', response.status, data);
       return res.status(response.status).json({ 
-        error: data.message || 'Failed to sync contact with email provider'
+        error: data.message || 'Failed to sync contact with email provider',
+        brevoPayload: payload,
+        brevoResponse: data
       });
     }
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, brevoPayload: payload, brevoResponse: data });
   } catch (error) {
     console.error('Contact API Internal Error:', error);
     return res.status(500).json({ error: 'Internal server error' });
