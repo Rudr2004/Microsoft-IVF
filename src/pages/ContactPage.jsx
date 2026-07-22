@@ -59,20 +59,25 @@ export default function ContactPage() {
           honeypot: formData.honeypot,
           recaptchaToken,
           customAttributes: {
-            Full_name: `${firstName} ${lastName}`.trim(),
+            FULL_NAME: `${firstName} ${lastName}`.trim(),
             EMAIL_ADDRESS: formData.email,
             COUNTRYOFRESIDENCE: formData.country,
-            PreferredLab: formData.lab,
+            PREFERREDLAB: formData.lab,
             PRIMARYGOAL: formData.goal,
-            TreatmentType: formData.treatment,
+            TREATMENTTYPE: formData.treatment,
             TIMELINE: formData.timeline,
-            Message_Additionaldetails: formData.message
+            MESSAGE_ADDITIONALDETAILS: formData.message
           }
         })
       });
       
       const data = await response.json();
       
+      console.log('--- Brevo Sync Results ---');
+      console.log('Payload sent to Brevo:', data.brevoPayload);
+      console.log('Response from Brevo:', data.brevoResponse);
+      console.log('--------------------------');
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit form');
       }
